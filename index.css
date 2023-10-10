@@ -1,0 +1,276 @@
+:root {
+  --font-sans: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable",
+    "Segoe UI", "Roboto Flex", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --accent: #993366; /* actually a flipped version of rebeccapurple */
+  --accent-light: #b43c78;
+  --fg: #000;
+  --bg: #fff
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #fff;
+    --bg: #121212;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 1.05em;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+}
+
+.fa-magnifying-glass {
+  color: var(--fg);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.header-center {
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+.left-margin {
+  margin: 0px 16px;
+}
+
+#uv-error {
+  color: #ff6666 !important;
+  white-space: pre-wrap;
+}
+
+#uv-error-code {
+  font-size: 12px;
+  color: var(--fg);
+  font-family: var(--font-mono);
+}
+
+#uv-register-sw {
+  color: var(--fg);
+  background: #555555;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 20px;
+  line-height: 16px;
+  display: none;
+}
+
+#uv-register-sw:active {
+  background: #333333;
+}
+
+#uv-register-sw.show {
+  display: block;
+}
+
+.logo {
+  width: 150px;
+  /* filter: hue-rotate(60deg); */
+  height: 150px;
+  margin-top: 0rem
+}
+
+.logo-wrapper .text {
+  font-size: 75px;
+  color: var(--fg);
+}
+
+.logo-wrapper h1 {
+  color: var(--fg);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ padding: 1em;
+}
+
+footer .left {
+  float: left
+}
+
+footer .right {
+  float: right;
+  margin-right: 3em;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--accent)!important;
+  font-weight: 500;
+}
+
+i {
+  font-size: 0.9rem;
+  margin: 2px;
+  padding: 5px;
+  margin-bottom: 0.8rem;
+  color: #888
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.desc p {
+  width: 560px;
+  color: rgba(253, 253, 253, 0.514);
+}
+
+#uv-address {
+  background: none;
+  border: none !important;
+  outline: none !important;
+  appearance: none !important;
+  font-family: var(--font-sans);
+  color: var(--fg);
+  flex-grow: 1;
+  transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-size: 0.9em;
+  align-self: center;
+  justify-self: flex-end;
+}
+
+#uv-search-engine-wrapper {
+  position: relative;
+    width: auto;
+    height: 3rem;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 1rem;
+}
+
+#uv-search-engine {
+  appearance: none;
+  outline: none;
+  padding: 0.5em;
+  font-size: 0.8rem;
+  background: none;
+  color: var(--fg);
+  border: none;
+  width: auto;
+  height: 3rem;
+    cursor: pointer;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+#form-container {
+  border: 1px solid var(--accent);
+  color: var(--text-color);
+  border-radius: 3px;
+  outline: none;
+  width: 50vw;
+  margin-top: 5px;
+  border-radius: 100vw;
+  color: var(--fg);
+  padding: 0px 17px;
+  display: flex;
+}
+
+#form-container:has(:focus) {
+  border-width: 1.5px;
+  border-radius: 10vw;
+  animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.credit:hover {
+  border-color: var(--accent);
+}
+
+.credit a {
+  color: var(--fg) !important;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.credit a:hover {
+  color: rebeccapurple !important;
+}
+
+.credit {
+  border-radius: 24px;
+  padding: 0.6em 1.1em;
+  display: block;
+  border: var(--fg) 1px solid;
+  margin-block: 1em;
+  color: var(--fg);
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 2em;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  /* margin-bottom: 15px; */
+}
+
+.credit:has(:checked) {
+  max-height: 640em;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.credit label {
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+.credit a,
+.credit label {
+  color: var(--fg);
+  text-decoration: underline;
+  text-align: right;
+}
+
+.credit pre {
+  display: none;
+  width: 100%;
+}
+
+.credit label::after {
+  content: "show license";
+  cursor: pointer;
+}
+
+.credit input:checked + label::after {
+  content: "hide license";
+}
+
+.credit input:checked ~ pre {
+  display: block;
+}
+
+@keyframes border-pulse {
+  0% {
+    border-color: var(--accent);
+  }
+  50% {
+    border-color: var(--accent-light);
+  }
+  90% {
+    border-color: var(--accent);
+  }
+}

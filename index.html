@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Infrared – Home</title>
+  <meta name="description" content="Infrared is an instance of the popular proxy service Ultraviolet." />
+  <meta name="keywords"
+    content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
+  <meta name="googlebot" content="index, follow, snippet" />
+  <link rel="shortcut icon" content="favicon.ico" />
+  <link rel="stylesheet" href="index.css" />
+  <script src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
+  <script src="register-sw.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="index.js" defer></script>
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Infrared (Web Proxy)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Infrared is an instance of the popular proxy service Ultraviolet, a powerful tool in evading network censorship! In addition, Infrared is also compliant with the TompHTTP standard, meaning you can use it with other proxy sites if you wish."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I unblock sites using Infrared?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Just type the url into the searchbox, and Infrared will do the rest!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What sets Infrared apart from other proxies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A huge difference between Infrared and other proxies is that Infrared runs on Cloudflare's global network, meaning the server is always closer to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if Ultraviolet is blocked or not working?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can always use another instance of Ultraviolet such as Noctura or Holy Unblocker, however note these may not be as close to your geographical location as Infrared is."
+            }
+          }
+        ]
+      }
+    </script>
+</head>
+
+<body>
+  <div class="flex-center logo-wrapper header-center">
+    <img class="logo" src="ir.png" alt="Infrared Logo" title="Infrared Logo" />
+    <h1>Infrared</h1>
+    <span><i>Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
+    <form id="uv-form" class="">
+      <div id="form-container">
+        <div id="uv-search-engine-container">
+          <select name="uv-search-engine" id="uv-search-engine">
+            <option value="https://www.google.com/search?q=%s" label="google">Google</option>
+            <option value="https://www.duckduckgo.com/?q=%s" selected>DuckDuckGo</option>
+            <option value="https://www.bing.com/search?q=%s">Bing</option>
+            <option value="https://search.brave.com/search?q=%s">Brave</option>
+            <option value="https://www.qwant.com/?q=%s&t=web">Qwant</option>
+            <option value="https://www.swisscows.com/en/web?query=%s">Swisscows</option>
+            <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
+          </select>
+        </div>
+        <input id="uv-address" type="text" placeholder="Enter URL or search" />
+      </div>
+    </form>
+  </div>
+  <div class="desc left-margin">
+    <p id="uv-error"></p>
+    <pre id="uv-error-code"></pre>
+  </div>
+  <footer>
+    <div class="left">
+      <span>Infrared <strong>0.9.9</strong> – The "its almost finished i swear" release.<br>A <a href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project. Based on <a
+          href="https://github.com/tomphttp/bare-server-worker" target="_blank">bare-server-worker</a> and <a
+          href="https://github.com/titaniumnetwork-dev/Ultraviolet-Static" target="_blank">Ultraviolet-Static.</a></span>
+    </div>
+    <div class="right"> <!-- TODO: Fix this grahhhhhh -->
+      <span> <a href="https://github.com/BomberFish/Infrared" target="_blank">GitHub</a>&nbsp;</span>
+      <span style="color: #666">|</span>
+      <span>&nbsp;<a href="credits.html" target="_blank">Licence Notices</a></span><br>
+    </div>
+  </footer>
+</body>
+
+</html>
