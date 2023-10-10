@@ -9,7 +9,7 @@
   --accent: #993366; /* actually a flipped version of rebeccapurple */
   --accent-light: #b43c78;
   --fg: #000;
-  --bg: #fff
+  --bg: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +21,7 @@
 
 body {
   font-family: var(--font-sans);
-  margin: 0 1rem;
+  margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
   display: flex;
@@ -97,9 +97,11 @@ pre {
   width: 120px;
   font-size: 120px;
   text-align: center;
-  /* filter: hue-rotate(60deg); */
+  align-self: center;
+  user-select: none;
+  -webkit-user-select: none;
   height: 120px;
-  margin-top: 0rem
+  margin-top: 0rem;
 }
 
 .logo-wrapper .text {
@@ -119,32 +121,35 @@ h1 {
 footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
- padding: 1em;
+  width: auto;
+  line-height: 1.5em;
+  text-align: left;
+  padding: 1em;
 }
 
 footer .left {
-  float: left
+  float: left;
 }
 
 footer .right {
   float: right;
-  margin-right: 3em;
+  text-align: right;
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
-  color: var(--accent)!important;
+  color: var(--accent) !important;
   font-weight: 500;
 }
 
-i {
+span:has(i), i {
   font-size: 0.9rem;
   margin: 2px;
   padding: 5px;
   margin-bottom: 0.8rem;
-  color: #888
+  color: #888;
+  text-align: center;
 }
 
 footer a:hover {
@@ -164,41 +169,49 @@ footer a:hover {
   font-family: var(--font-sans);
   color: var(--fg);
   flex-grow: 1;
-  transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   font-size: 0.9em;
+  height: 3vw;
   align-self: center;
   justify-self: flex-end;
 }
 
 #uv-search-engine-wrapper {
   position: relative;
-    width: auto;
-    height: 3rem;
-    float: left;
-    margin: 0px;
-    padding: 0px;
-    padding-right: 1rem;
+  width: auto;
+  height: 3rem;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  padding-right: 1rem;
 }
 
 #uv-search-engine {
   appearance: none;
   outline: none;
   padding: 0.5em;
-  font-size: 0.8rem;
+  font-size: 1rem;
   background: none;
   color: var(--fg);
-  border: none;
+  border: 1px solid var(--fg);
+  border-radius: 8px;
   width: auto;
   height: 3rem;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 form {
   margin-top: 1rem;
 }
 
+/* ignore 💀 */
+/* *{ 
+  outline: 1px solid red;
+ } */ 
+
 #form-container {
-  border: 1px solid var(--accent);
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1.25px solid var(--accent);
   color: var(--text-color);
   border-radius: 3px;
   outline: none;
@@ -211,9 +224,10 @@ form {
 }
 
 #form-container:has(:focus) {
-  border-width: 1.5px;
+  /* border-width: 1.5px; */
   border-radius: 10vw;
   animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .credit:hover {
@@ -291,12 +305,15 @@ form {
 }
 
 .tabButton {
+  text-align: left;
+  float: left;
   appearance: none;
+  margin-right: 0.4em;
   border: none;
   background: transparent;
   color: var(--fg);
-  font-size: 1rem;
-  border-bottom: 3px solid transparent;
+  font-size: 1.1rem;
+  border-bottom: 0px solid transparent;
   transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -305,9 +322,31 @@ form {
 }
 
 .tabButton:hover:not(.active) {
-  border-bottom: 2px solid #888;
+  border-bottom: 4px solid #888;
 }
 
 nav {
   margin-top: 0.8rem;
+}
+
+.portrait-only {
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+  #form-container {
+    width: 80vw;
+  }
+  footer .left {
+    display: none;
+    visibility: hidden;
+  }
+
+  .portrait-only {
+    display: initial;
+  }
+
+  .landscape-only {
+    display: none;
+  }
 }

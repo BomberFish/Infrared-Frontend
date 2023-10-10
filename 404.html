@@ -5,8 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>Infrared – Error</title>
-  <meta name="description"
-    content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!" />
+  <meta name="description" content="Infrared is an instance of the popular proxy service Ultraviolet." />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
   <meta name="googlebot" content="noindex, nofollow, nosnippet" />
   <base href="/" />
@@ -16,10 +15,11 @@
 
 <body>
   <div class="logo-wrapper left-margin">
-    <h1>Infrared – Error</h1>
+    <h1>Error</h1>
   </div>
   <div class="desc left-margin">
-    <p>The server could not route your request.</p>
+    <p>The server could not route your request. Try refreshing the page, or try again later.</p>
+    <a onclick="history.go(-1)">Go Back</a>
     <p id="uv-error"></p>
     <code id="uv-error-code"></code>
     <button id="uv-register-sw" value="Register service worker">
@@ -27,10 +27,10 @@
     </button>
   </div>
   <footer>
-    <a title="License information" href="credits.html" style="margin-left: auto">Credits</a>
-    <span>Ultraviolet &copy; TN 2022</span>
+    <a title="License information" href="credits.html" style="margin-left: auto">Licence notices</a>
+    <!-- <span>Ultraviolet &copy; TN 2022</span> -->
   </footer>
-  <script src="uv/uv.bundle.js"></script>
+  <script src="uv/uv.bundle.js" type="module"></script>
   <script src="uv/uv.config.js"></script>
   <script src="register-sw.js"></script>
   <script src="error.js"></script>

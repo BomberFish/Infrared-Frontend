@@ -1,6 +1,10 @@
 function changeTab(id, buttonId) {
     console.log("changing tab")
-    document.getElementById("currentTab").innerHTML = document.getElementById(id).innerHTML;
+    document.querySelectorAll(".tab").forEach((tab) => {
+        console.log("removing shown class")
+        tab.classList.remove("shown");
+    })
+    document.getElementById(id).classList.add("shown");
     document.querySelectorAll(".tabButton").forEach((tab) => {
         console.log("removing active class")
         tab.classList.remove("active");
@@ -10,7 +14,7 @@ function changeTab(id, buttonId) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("transitioning to tabs view")
-    document.getElementById("home").classList.remove("shown"); // seamlessly transition
+    // console.log("transitioning to tabs view")
+    // document.getElementById("home").classList.remove("shown"); // seamlessly transition
     changeTab("home", "homeBtn");
 });
