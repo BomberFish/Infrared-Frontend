@@ -87,6 +87,8 @@ pre {
 
 .logo {
   width: 150px;
+  font-size: 120px;
+  text-align: center;
   /* filter: hue-rotate(60deg); */
   height: 150px;
   margin-top: 0rem
