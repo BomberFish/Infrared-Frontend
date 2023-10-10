@@ -8,7 +8,8 @@
   <meta name="description" content="Infrared is an instance of the popular proxy service Ultraviolet." />
   <meta name="keywords"
     content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
   <meta name="googlebot" content="index, follow, snippet" />
   <link rel="shortcut icon" content="favicon.ico" />
   <link rel="stylesheet" href="index.css" />
@@ -60,36 +61,46 @@
 </head>
 
 <body>
-  <div class="flex-center logo-wrapper header-center">
-    <div class="logo" alt="Infrared Logo" title="Infrared Logo">⛅️</div>
-    <h1>Infrared</h1>
-    <span><i>Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
-    <form id="uv-form" class="">
-      <div id="form-container">
-        <div id="uv-search-engine-container">
-          <select name="uv-search-engine" id="uv-search-engine">
-            <option value="https://www.google.com/search?q=%s" label="google">Google</option>
-            <option value="https://www.duckduckgo.com/?q=%s" selected>DuckDuckGo</option>
-            <option value="https://www.bing.com/search?q=%s">Bing</option>
-            <option value="https://search.brave.com/search?q=%s">Brave</option>
-            <option value="https://www.qwant.com/?q=%s&t=web">Qwant</option>
-            <option value="https://www.swisscows.com/en/web?query=%s">Swisscows</option>
-            <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
-          </select>
+  <nav>
+    <button class="tabButton active" id="homeBtn" onclick="changeTab('home', 'homeBtn')">home</button>
+    <button class="tabButton" id="settingsBtn" onclick="changeTab('settings', 'settingsBtn')">settings</button>
+  </nav>
+  <div id="currentTab"></div>
+  <div id="home" class="tab shown">
+    <div class="flex-center logo-wrapper header-center">
+      <div class="logo" alt="Infrared Logo" title="Infrared Logo">⛅️</div>
+      <h1>Infrared</h1>
+      <span><i>Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
+      <form id="uv-form" class="">
+        <div id="form-container">
+          <div id="uv-search-engine-container">
+            <select name="uv-search-engine" id="uv-search-engine">
+              <option value="https://www.google.com/search?q=%s" label="google">Google</option>
+              <option value="https://www.duckduckgo.com/?q=%s" selected>DuckDuckGo</option>
+              <option value="https://www.bing.com/search?q=%s">Bing</option>
+              <option value="https://search.brave.com/search?q=%s">Brave</option>
+              <option value="https://www.qwant.com/?q=%s&t=web">Qwant</option>
+              <option value="https://www.swisscows.com/en/web?query=%s">Swisscows</option>
+              <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
+            </select>
+          </div>
+          <input id="uv-address" type="text" placeholder="Enter URL or search" />
         </div>
-        <input id="uv-address" type="text" placeholder="Enter URL or search" />
-      </div>
-    </form>
+      </form>
+    </div>
+    <div class="desc left-margin">
+      <p id="uv-error"></p>
+      <pre id="uv-error-code"></pre>
+    </div>
   </div>
-  <div class="desc left-margin">
-    <p id="uv-error"></p>
-    <pre id="uv-error-code"></pre>
-  </div>
+  <div id="settings" class="tab"><h1>Settings</h1>eta son</div>
   <footer>
     <div class="left">
-      <span>Infrared <strong>0.9.9</strong> – The "its almost finished i swear" release.<br>A <a href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project. Based on <a
+      <span>Infrared <strong>0.9.2</strong> – The "sudden regression?!" release.<br>A <a
+          href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project. Based on <a
           href="https://github.com/tomphttp/bare-server-worker" target="_blank">bare-server-worker</a> and <a
-          href="https://github.com/titaniumnetwork-dev/Ultraviolet-Static" target="_blank">Ultraviolet-Static.</a></span>
+          href="https://github.com/titaniumnetwork-dev/Ultraviolet-Static"
+          target="_blank">Ultraviolet-Static.</a></span>
     </div>
     <div class="right"> <!-- TODO: Fix this grahhhhhh -->
       <span> <a href="https://github.com/BomberFish/Infrared" target="_blank">GitHub</a>&nbsp;</span>
@@ -98,5 +109,5 @@
     </div>
   </footer>
 </body>
-
+<script src="tabs.js" defer></script>
 </html>

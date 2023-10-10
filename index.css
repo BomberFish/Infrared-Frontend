@@ -21,7 +21,7 @@
 
 body {
   font-family: var(--font-sans);
-  margin: 0;
+  margin: 0 1rem;
   color: var(--fg);
   background: var(--bg);
   display: flex;
@@ -81,16 +81,24 @@ pre {
   background: #333333;
 }
 
+.tab {
+  display: none;
+}
+
+.tab.shown {
+  display: initial;
+}
+
 #uv-register-sw.show {
   display: block;
 }
 
 .logo {
-  width: 150px;
+  width: 120px;
   font-size: 120px;
   text-align: center;
   /* filter: hue-rotate(60deg); */
-  height: 150px;
+  height: 120px;
   margin-top: 0rem
 }
 
@@ -101,6 +109,11 @@ pre {
 
 .logo-wrapper h1 {
   color: var(--fg);
+}
+
+h1 {
+  font-size: 2.1em;
+  font-weight: 750;
 }
 
 footer {
@@ -275,4 +288,26 @@ form {
   90% {
     border-color: var(--accent);
   }
+}
+
+.tabButton {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  font-size: 1rem;
+  border-bottom: 3px solid transparent;
+  transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.tabButton.active {
+  border-bottom: 4px solid var(--accent);
+}
+
+.tabButton:hover:not(.active) {
+  border-bottom: 2px solid #888;
+}
+
+nav {
+  margin-top: 0.8rem;
 }
