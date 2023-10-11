@@ -35,7 +35,7 @@ function switchIcons(style) {
     }
 }
 
-registerDefault("iconTheme", "sanfrancisco")
+registerDefault("iconTheme", "material")
 document.getElementById("ir-icons").value = load("iconTheme")
 registerDefault("searchEngine", "https://www.duckduckgo.com/?q=%s")
 document.getElementById("uv-search-engine").value = load("searchEngine")
