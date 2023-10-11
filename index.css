@@ -1,7 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* reset */
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -34,7 +42,12 @@ body {
   margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100vh;
   font-size: 1.05em;
@@ -53,12 +66,21 @@ pre {
 
 /* center a div challenge (impossible) */
 .flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .header-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin-top: 10%;
 }
@@ -104,7 +126,11 @@ pre {
   width: 120px;
   font-size: 120px;
   text-align: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-user-select: none;
   height: 120px;
@@ -187,13 +213,21 @@ i {
   background: none;
   border: none !important;
   outline: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
   appearance: none !important;
   font-family: var(--font-sans);
   color: var(--fg);
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
+  -webkit-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   font-size: 0.9em;
   height: 5vh;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   justify-self: flex-end;
 }
@@ -211,6 +245,8 @@ i {
 /* select */
 select {
   /* reset */
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-color: transparent;
   border: none;
@@ -247,6 +283,7 @@ select {
   background-color: transparent;
   color: var(--fg);
   /* background-image: linear-gradient(to top, #f9f9f9, #fff 33%); */
+  display: -ms-grid;
   display: grid;
   grid-template-areas: "select";
 }
@@ -254,6 +291,8 @@ select {
 select,
 .select::after,
 .select:after {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: select;
 }
 
@@ -263,7 +302,9 @@ select,
   width: 0.8em;
   height: 0.5em;
   background-color: var(--select-arrow);
+  -ms-grid-column-align: end;
   justify-self: end;
+  -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 
@@ -288,6 +329,8 @@ form {
  } */
 
 #form-container {
+  -webkit-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: 1.25px solid var(--accent);
   color: var(--text-color);
@@ -298,13 +341,18 @@ form {
   border-radius: 100vw;
   color: var(--fg);
   padding: 0px 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 #form-container:has(:focus) {
   /* border-width: 1.5px; */
   border-radius: 10vw;
+  -webkit-animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  -webkit-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -316,6 +364,8 @@ form {
 
 .credit a {
   color: var(--fg) !important;
+  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -330,15 +380,22 @@ form {
   border: var(--fg) 1px solid;
   margin-block: 1em;
   color: var(--fg);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   max-height: 2em;
+  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   /* margin-bottom: 15px; */
 }
 
 .credit:has(:checked) {
   max-height: 640em;
+  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -373,6 +430,17 @@ form {
 }
 
 /* animation */
+@-webkit-keyframes border-pulse {
+  0% {
+    border-color: var(--accent);
+  }
+  50% {
+    border-color: var(--accent-light);
+  }
+  90% {
+    border-color: var(--accent);
+  }
+}
 @keyframes border-pulse {
   0% {
     border-color: var(--accent);
@@ -389,6 +457,8 @@ form {
 .tabButton {
   text-align: left;
   float: left;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   margin-right: 0.4em;
   border: none;
@@ -396,6 +466,8 @@ form {
   color: var(--fg);
   font-size: 1.1rem;
   border-bottom: 0px solid transparent;
+  -webkit-transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -440,6 +512,8 @@ nav {
 
 /* more buttons */
 button.btn.primary {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   border: 2px solid var(--fg);
   color: var(--bg);
@@ -448,6 +522,8 @@ button.btn.primary {
   border-radius: 6px;
   outline: none;
   background: var(--fg);
+  -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -455,9 +531,12 @@ button.btn.primary:hover {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--fg);
+  -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 button.btn.primary:active {
+  -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
 }
