@@ -209,7 +209,8 @@ i {
 }
 
 /* select */
-select { /* reset */
+select {
+  /* reset */
   appearance: none;
   background-color: transparent;
   border: none;
@@ -223,7 +224,8 @@ select { /* reset */
   outline: none;
 }
 
-select::-ms-expand { /* ie moment??? */
+select::-ms-expand {
+  /* ie moment??? */
   display: none;
 }
 
@@ -255,7 +257,8 @@ select,
   grid-area: select;
 }
 
-.select::after, .select:after {
+.select::after,
+.select:after {
   content: "";
   width: 0.8em;
   height: 0.5em;

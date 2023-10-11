@@ -105,7 +105,7 @@
     <h1>Settings</h1>
     <div id="uv-search-engine-container">
       <label for="uv-search-engine">Search Engine&nbsp;&nbsp;</label>
-      <div class="select">
+      <span class="select">
         <select name="uv-search-engine" id="uv-search-engine"
           onchange="save('searchEngine', this.options[this.selectedIndex].value)">
           <option value="https://www.google.com/search?q=%s">Google</option>
@@ -117,16 +117,16 @@
           <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
         </select>
         <span class="focus"></span>
-      </div><br>
+      </span><br>
       <label for="ir-icons">Icon style&nbsp;&nbsp;</label>
-      <div class="select">
+      <span class="select">
         <select name="ir-icons" id="ir-icons"
           onchange="save('iconTheme', this.options[this.selectedIndex].value); switchIcons(this.options[this.selectedIndex].value)">
           <option value="sanfrancisco">Apple</option>
           <option value="material">Google</option>
         </select>
         <span class="focus"></span>
-      </div><br>
+      </span><br>
       <button class="btn primary" onclick="localStorage.clear();window.location.reload();">Reset settings</button>
     </div>
   </div>
