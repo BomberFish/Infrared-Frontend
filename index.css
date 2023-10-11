@@ -53,6 +53,11 @@ body {
   font-size: 1.05em;
 }
 
+/* disabled */
+*:disabled {
+  cursor: not-allowed;
+}
+
 /* codeblocks */
 pre {
   font-family: var(--font-mono);
@@ -244,9 +249,6 @@ i {
 
 /* select */
 select {
-  /* reset */
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-color: transparent;
   border: none;
@@ -257,57 +259,41 @@ select {
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
+  z-index: 1;
   outline: none;
-}
 
+  color: var(--fg)
+}
 select::-ms-expand {
-  /* ie moment??? */
   display: none;
 }
-
-select {
-  color: var(--fg);
-}
-
 .select {
+  display: inline-grid;
+  grid-template-areas: "select";
+  align-items: center;
   position: relative;
-  width: 100%;
   min-width: 15ch;
   max-width: 30ch;
-  border: 1px solid var(--select-border);
-  border-radius: 0.25em;
+  border: 1px solid var(--fg);
+  border-radius: 0.5em;
   padding: 0.25em 0.5em;
-  font-size: 1.25rem;
+  font-size: 1rem;
   cursor: pointer;
   line-height: 1.1;
   background-color: transparent;
-  color: var(--fg);
-  /* background-image: linear-gradient(to top, #f9f9f9, #fff 33%); */
-  display: -ms-grid;
-  display: grid;
-  grid-template-areas: "select";
 }
-
-select,
-.select::after,
-.select:after {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
+.select select, .select::after {
   grid-area: select;
 }
-
-.select::after,
-.select:after {
+.select:not(.select--multiple)::after {
   content: "";
+  justify-self: end;
   width: 0.8em;
   height: 0.5em;
-  background-color: var(--select-arrow);
-  -ms-grid-column-align: end;
-  justify-self: end;
-  -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  background-color: var(--fg);
+  scale: 0.9;
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
-
 select:focus + .focus {
   position: absolute;
   top: -1px;
@@ -316,6 +302,14 @@ select:focus + .focus {
   bottom: -1px;
   border: 2px solid var(--select-focus);
   border-radius: inherit;
+}
+
+.setting-row {
+  margin-bottom: 1rem;
+}
+
+#bottom-buttons {
+  margin-top: 0.25rem;
 }
 
 /* forms */
@@ -471,7 +465,8 @@ form {
   transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.tabButton > svg {
+.tabButton > .svgWrapper > svg {
+  scale: 1.2;
   fill: var(--fg);
 }
 
