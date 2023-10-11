@@ -1,3 +1,11 @@
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* variables */
 :root {
   --font-sans: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable",
     "Segoe UI", "Roboto Flex", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
@@ -12,6 +20,7 @@
   --bg: #fff;
 }
 
+/* variables (dark) */
 @media (prefers-color-scheme: dark) {
   :root {
     --fg: #fff;
@@ -19,6 +28,7 @@
   }
 }
 
+/* body styles */
 body {
   font-family: var(--font-sans);
   margin: 0 2rem;
@@ -30,15 +40,18 @@ body {
   font-size: 1.05em;
 }
 
+/* codeblocks */
 pre {
   font-family: var(--font-mono);
   font-size: 0.8em;
 }
 
+/* unused */
 .fa-magnifying-glass {
   color: var(--fg);
 }
 
+/* center a div challenge (impossible) */
 .flex-center {
   display: flex;
   justify-content: center;
@@ -54,6 +67,7 @@ pre {
   margin: 0px 16px;
 }
 
+/* uv logs */
 #uv-error {
   color: #ff6666 !important;
   white-space: pre-wrap;
@@ -81,18 +95,11 @@ pre {
   background: #333333;
 }
 
-.tab {
-  display: none;
-}
-
-.tab.shown {
-  display: initial;
-}
-
 #uv-register-sw.show {
   display: block;
 }
 
+/* logo */
 .logo {
   width: 120px;
   font-size: 120px;
@@ -113,11 +120,22 @@ pre {
   color: var(--fg);
 }
 
+/* tabs */
+.tab {
+  display: none;
+}
+
+.tab.shown {
+  display: initial;
+}
+
+/* header */
 h1 {
   font-size: 2.1em;
   font-weight: 750;
 }
 
+/* footers */
 footer {
   position: absolute;
   bottom: 0;
@@ -136,6 +154,7 @@ footer .right {
   text-align: right;
 }
 
+/* make links not shit */
 a {
   text-decoration: none;
   cursor: pointer;
@@ -143,7 +162,13 @@ a {
   font-weight: 500;
 }
 
-span:has(i), i {
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* subtitles */
+span:has(i),
+i {
   font-size: 0.9rem;
   margin: 2px;
   padding: 5px;
@@ -152,15 +177,12 @@ span:has(i), i {
   text-align: center;
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
 .desc p {
   width: 560px;
   color: rgba(253, 253, 253, 0.514);
 }
 
+/* address bar */
 #uv-address {
   background: none;
   border: none !important;
@@ -186,20 +208,73 @@ footer a:hover {
   padding-right: 1rem;
 }
 
-#uv-search-engine {
+/* select */
+select { /* reset */
   appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
   outline: none;
-  padding: 0.5em;
-  font-size: 1rem;
-  background: none;
-  color: var(--fg);
-  border: 1px solid var(--fg);
-  border-radius: 8px;
-  width: auto;
-  height: 3rem;
-  cursor: pointer;
 }
 
+select::-ms-expand { /* ie moment??? */
+  display: none;
+}
+
+select {
+  color: var(--fg);
+}
+
+.select {
+  position: relative;
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: transparent;
+  color: var(--fg);
+  /* background-image: linear-gradient(to top, #f9f9f9, #fff 33%); */
+  display: grid;
+  grid-template-areas: "select";
+}
+
+select,
+.select::after,
+.select:after {
+  grid-area: select;
+}
+
+.select::after, .select:after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  justify-self: end;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+/* forms */
 form {
   margin-top: 1rem;
 }
@@ -207,7 +282,7 @@ form {
 /* ignore 💀 */
 /* *{ 
   outline: 1px solid red;
- } */ 
+ } */
 
 #form-container {
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -229,6 +304,8 @@ form {
   animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
+/* credits */
 
 .credit:hover {
   border-color: var(--accent);
@@ -292,6 +369,7 @@ form {
   display: block;
 }
 
+/* animation */
 @keyframes border-pulse {
   0% {
     border-color: var(--accent);
@@ -304,6 +382,7 @@ form {
   }
 }
 
+/* tab buttons */
 .tabButton {
   text-align: left;
   float: left;
@@ -315,6 +394,10 @@ form {
   font-size: 1.1rem;
   border-bottom: 0px solid transparent;
   transition: border 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.tabButton > svg {
+  fill: var(--fg);
 }
 
 .tabButton.active {
@@ -329,6 +412,7 @@ nav {
   margin-top: 0.8rem;
 }
 
+/* extra styles */
 .portrait-only {
   display: none;
 }
@@ -349,4 +433,28 @@ nav {
   .landscape-only {
     display: none;
   }
+}
+
+/* more buttons */
+button.btn.primary {
+  appearance: none;
+  border: 2px solid var(--fg);
+  color: var(--bg);
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  background: var(--fg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button.btn.primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--fg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button.btn.primary:active {
+  filter: brightness(0.9);
 }
