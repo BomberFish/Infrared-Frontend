@@ -2,7 +2,7 @@
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,
 * Autoprefixer: v10.4.7
-* Browsers: last 4 version
+* Browsers: last 70 version (fuck it)
 */
 
 /* reset */
@@ -44,10 +44,12 @@ body {
   background: var(--bg);
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   min-height: 100vh;
   font-size: 1.05em;
@@ -73,19 +75,23 @@ pre {
 .flex-center {
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
 .header-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -webkit-align-items: center;
   align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   margin-top: 10%;
 }
@@ -112,6 +118,7 @@ pre {
   cursor: pointer;
   outline: none;
   border: none;
+  -webkit-border-radius: 6px;
   border-radius: 6px;
   padding: 16px 20px;
   line-height: 16px;
@@ -133,6 +140,7 @@ pre {
   text-align: center;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
+  -webkit-align-self: center;
   align-self: center;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -225,6 +233,7 @@ i {
   color: var(--fg);
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
+  -webkit-flex-grow: 1;
   flex-grow: 1;
   -webkit-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   -o-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -233,6 +242,7 @@ i {
   height: 5vh;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
+  -webkit-align-self: center;
   align-self: center;
   justify-self: flex-end;
 }
@@ -249,6 +259,8 @@ i {
 
 /* select */
 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-color: transparent;
   border: none;
@@ -262,19 +274,24 @@ select {
   z-index: 1;
   outline: none;
 
-  color: var(--fg)
+  color: var(--fg);
 }
 select::-ms-expand {
   display: none;
 }
 .select {
+  display: -ms-inline-grid;
   display: inline-grid;
   grid-template-areas: "select";
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   min-width: 15ch;
   max-width: 30ch;
   border: 1px solid var(--fg);
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   padding: 0.25em 0.5em;
   font-size: 1rem;
@@ -282,16 +299,21 @@ select::-ms-expand {
   line-height: 1.1;
   background-color: transparent;
 }
-.select select, .select::after {
+.select select,
+.select::after {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: select;
 }
 .select:not(.select--multiple)::after {
   content: "";
+  -ms-grid-column-align: end;
   justify-self: end;
   width: 0.8em;
   height: 0.5em;
   background-color: var(--fg);
   scale: 0.9;
+  -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 select:focus + .focus {
@@ -301,6 +323,7 @@ select:focus + .focus {
   right: -1px;
   bottom: -1px;
   border: 2px solid var(--select-focus);
+  -webkit-border-radius: inherit;
   border-radius: inherit;
 }
 
@@ -328,20 +351,24 @@ form {
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: 1.25px solid var(--accent);
   color: var(--text-color);
+  -webkit-border-radius: 3px;
   border-radius: 3px;
   outline: none;
   width: 50vw;
   margin-top: 5px;
+  -webkit-border-radius: 100vw;
   border-radius: 100vw;
   color: var(--fg);
   padding: 0px 17px;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 
 #form-container:has(:focus) {
   /* border-width: 1.5px; */
+  -webkit-border-radius: 10vw;
   border-radius: 10vw;
   -webkit-animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation: border-pulse 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -368,6 +395,7 @@ form {
 }
 
 .credit {
+  -webkit-border-radius: 24px;
   border-radius: 24px;
   padding: 0.6em 1.1em;
   display: block;
@@ -376,8 +404,10 @@ form {
   color: var(--fg);
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   max-height: 2em;
   -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -514,6 +544,7 @@ button.btn.primary {
   color: var(--bg);
   padding: 0.5em 1em;
   font-size: 1rem;
+  -webkit-border-radius: 6px;
   border-radius: 6px;
   outline: none;
   background: var(--fg);

@@ -22,7 +22,12 @@ const errorCode = document.getElementById("uv-error-code");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  console.log("submit event fired")
+  proxySite(address.value);
+});
 
+async function proxySite(url) {
+  console.log(url)
   try {
     await registerSW();
   } catch (err) {
@@ -31,6 +36,6 @@ form.addEventListener("submit", async (event) => {
     throw err;
   }
 
-  const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-});
+  const formattedURL = search(url, searchEngine.value);
+  location.href = __uv$config.prefix + __uv$config.encodeUrl(formattedURL);
+}

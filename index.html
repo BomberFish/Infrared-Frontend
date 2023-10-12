@@ -4,23 +4,34 @@
 <head>
   <link rel="preload" href="normalize.css" as="style" />
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <title>Infrared – Home</title>
-  <meta name="description" content="Infrared is an instance of the popular proxy service Ultraviolet." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
+  <title id="pageName">Infrared – Home</title>
+  <meta name="title" content="Infrared Proxy" />
+  <meta name="og:title" content="Infrared Proxy" />
+  <meta name="description" content="A high-performance edge proxy running on Cloudflare's global network." />
+  <meta name="og:description" content="A high-performance edge proxy running on Cloudflare's global network." />
+  <meta property="url" content="https://infrared.bomberfish.ca">
+  <meta property="og:url" content="https://infrared.bomberfish.ca">
   <meta name="keywords"
-    content="proxy, web proxy, ultraviolet, service workers, tomphttp, cloudflare workers, workers-proxy, workers proxy, edge proxy, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+    content="proxy, web proxy, edge proxy, ultraviolet, infrared, infrared proxy, service workers, tomphttp, cloudflare workers, workers-proxy, workers proxy, edge proxy, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, noctura, noctura proxy, incognito, incognito proxy, nebula, nebula proxy, ludicrous, ludicrous proxy, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+  <meta name="apple-mobile-web-app-title" content="Infrared">
+  <meta name="image" content="./ir-mobile.png" />
+  <meta name="meta:image" content="./ir-mobile.png" />
+  <meta name="theme-color" content="#b43c78" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="robots" content="index, follow, snippet" />
   <meta name="googlebot" content="index, follow, snippet" />
   <link rel="shortcut icon" content="favicon.ico" />
+  <link rel="apple-touch-icon" href="./ir-mobile.png">
+  <link rel="apple-touch-icon-precomposed" href="./ir-mobile.png">
   <link rel="stylesheet" href="index.css" />
   <script src="uv/uv.bundle.js" type="module" defer></script>
   <script src="uv/uv.config.js" defer></script>
   <script src="register-sw.js" defer></script>
   <script src="search.js" defer></script>
-  <script src="index.js" defer></script>
+  <script src="proxy.js" defer></script>
   <script src="prefs.js" defer></script>
-  <script src="iconmanager.js"></script>
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -31,7 +42,7 @@
             "name": "What is Infrared (Web Proxy)?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Infrared is an instance of the popular proxy service Ultraviolet, a powerful tool in evading network censorship! In addition, Infrared is also compliant with the TompHTTP standard, meaning you can use it with other proxy sites if you wish."
+              "text": "Infrared is a proxy service based on Ultraviolet, a powerful tool in evading network censorship! In addition, Infrared is also compliant with the TompHTTP standard, meaning you can use it with other proxy sites if you wish."
             }
           },
           {
@@ -65,7 +76,7 @@
 
 <body>
   <nav>
-    <button class="tabButton active" id="homeBtn" onclick="changeTab('home', 'homeBtn')">
+    <button class="tabButton active" id="homeBtn" onclick="changeTab('home', 'homeBtn'); changePageName('Infrared – Home');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -73,7 +84,7 @@
         </svg>
       </span>
     </button>
-    <button class="tabButton" id="settingsBtn" onclick="changeTab('settings', 'settingsBtn')">
+    <button class="tabButton" id="settingsBtn" onclick="changeTab('settings', 'settingsBtn'); changePageName('Infrared – Settings');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -87,7 +98,7 @@
       <div class="logo" alt="Infrared Logo" title="Infrared Logo">⛅️</div>
       <h1>Infrared</h1>
       <span><i>Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
-      <form id="uv-form" class="">
+      <form id="uv-form">
         <div id="form-container">
           <input id="uv-address" type="text" placeholder="Enter URL or search" />
         </div>

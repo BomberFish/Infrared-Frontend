@@ -13,6 +13,11 @@ function changeTab(id, buttonId) {
     console.log("setting button class")
 }
 
+function changePageName(name) {
+    console.log("Changing page name to " + name)
+    document.getElementById("pageName").innerHTML = name;
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
     // console.log("transitioning to tabs view")
     // document.getElementById("home").classList.remove("shown"); // seamlessly transition
