@@ -86,7 +86,7 @@
         </svg>
       </span>
     </button>
-    <button class="tabButton" id="qlBtn"  style="display: none;"
+    <button class="tabButton" id="qlBtn"
       onclick="changeTab('quicklinks', 'qlBtn'); changePageName('Infrared – Quicklinks');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
@@ -117,17 +117,13 @@
       </form>
       <br><div id="ir-custom-server-warning">⚠️ USING CUSTOM SERVER! ⚠️</div>
     </div>
-    <div class="desc left-margin">
-      <p id="uv-error"></p>
-      <pre id="uv-error-code"></pre>
-    </div>
   </div>
   <div id="quicklinks" class="tab">
     <h1>Quicklinks</h1>
-    <i style="font-size: 0.9em;">Note: these don't work quite yet.</i><br><br>
+    <!-- <i style="font-size: 0.9em;">Note: these don't work quite yet.</i><br><br> -->
     <div class="quicklink">
       <img src="https://icons.duckduckgo.com/ip3/blog.bomberfish.ca.ico" alt="Favicon" />
-      <button onclick="await proxySite('https\:\/\/blog.bomberfish.ca')">BomberFish's Blog</button>
+      <button origin="https://blog.bomberfish.ca">BomberFish's Blog</button>
     </div>
   </div>
   <div id="settings" class="tab">
@@ -176,6 +172,10 @@
       <button class="btn primary" onclick="localStorage.clear();window.location.reload();">Reset settings</button>
     </div>
   </div>
+  </div>
+  <div class="desc left-margin">
+    <p id="uv-error"></p>
+    <pre id="uv-error-code"></pre>
   </div>
   <footer>
     <div class="left">

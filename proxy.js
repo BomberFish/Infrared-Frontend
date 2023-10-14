@@ -30,7 +30,7 @@ async function proxySite(urlToProxy) {
   try {
     await registerSW();
   } catch (err) {
-    error.textContent = "Failed to register service worker.";
+    error.textContent = "❌ Failed to register service worker.";
     errorCode.textContent = err.toString();
     throw err;
   }
@@ -40,3 +40,13 @@ async function proxySite(urlToProxy) {
   console.log(__uv$config.bare)
   location.href = __uv$config.prefix + __uv$config.encodeUrl(formattedURL);
 }
+
+document.querySelectorAll(".quicklink > button").forEach((button) => {
+  button.addEventListener("click", async () => {
+    if (button.getAttribute("origin") == null) {
+      console.error("Quicklink does not have an origin attribute.")
+    } else {
+      proxySite(button.getAttribute("origin"));
+    }
+  });
+});
