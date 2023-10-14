@@ -24,6 +24,8 @@ self.__uv$config = {
   sw: "/uv/uv.sw.js",
 };
 
+console.log(self.__uv$config)
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOMContentLoaded event fired");
   const serverTextBox = document.getElementById("ir-custom-server");
