@@ -6,7 +6,7 @@ if (localStorage.getItem("customServer") == null) {
   let server = localStorage.getItem("customServer");
 }
 
-if (self.__uv$config.bare != "https://backend.infrared.bomberfish.ca") {
+if (server != "https://backend.infrared.bomberfish.ca") {
   console.warn("Using a custom bare server. Support will not be provided.")
 }
 
