@@ -1,4 +1,3 @@
-"use strict";
 /**
  * @type {HTMLFormElement}
  */
@@ -26,8 +25,8 @@ form.addEventListener("submit", async (event) => {
   proxySite(address.value);
 });
 
-async function proxySite(url) {
-  console.log(url)
+async function proxySite(urlToProxy) {
+  console.log(urlToProxy)
   try {
     await registerSW();
   } catch (err) {
@@ -36,6 +35,6 @@ async function proxySite(url) {
     throw err;
   }
 
-  const formattedURL = search(url, searchEngine.value);
+  const formattedURL = search(urlToProxy, searchEngine.value);
   location.href = __uv$config.prefix + __uv$config.encodeUrl(formattedURL);
 }

@@ -206,8 +206,8 @@ footer a:hover {
 }
 
 /* subtitles */
-span:has(i),
-i {
+span:has(.subtitle),
+.subtitle {
   font-size: 0.9rem;
   margin: 2px;
   padding: 5px;
@@ -327,12 +327,29 @@ select:focus + .focus {
   border-radius: inherit;
 }
 
+/* settings */
 .setting-row {
   margin-bottom: 1rem;
 }
 
 #bottom-buttons {
   margin-top: 0.25rem;
+}
+
+.setting-option {
+  position: absolute;
+  right: 69%;
+}
+
+#ir-custom-server-warning {
+  display: none;
+  color: #eebb00;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+#ir-custom-server-warning.shown{
+  display: initial;
 }
 
 /* forms */
@@ -565,4 +582,45 @@ button.btn.primary:hover {
 button.btn.primary:active {
   -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
+}
+
+/* quicklinks */
+
+.quicklink > img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+.quicklink > button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--fg);
+  font-size: 1rem;
+}
+
+.quicklink {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+}
+
+/* textbox */
+.textbox {
+  appearance: none;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--fg);
+  font-size: 1rem;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-bottom: #888 2px solid;
+}
+
+.textbox:focus {
+  border-bottom: var(--accent) 2px solid;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }

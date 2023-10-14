@@ -4,7 +4,8 @@
 <head>
   <link rel="preload" href="normalize.css" as="style" />
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
   <title id="pageName">Infrared – Home</title>
   <meta name="title" content="Infrared Proxy" />
   <meta name="og:title" content="Infrared Proxy" />
@@ -76,7 +77,8 @@
 
 <body>
   <nav>
-    <button class="tabButton active" id="homeBtn" onclick="changeTab('home', 'homeBtn'); changePageName('Infrared – Home');">
+    <button class="tabButton active" id="homeBtn"
+      onclick="changeTab('home', 'homeBtn'); changePageName('Infrared – Home');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -84,7 +86,17 @@
         </svg>
       </span>
     </button>
-    <button class="tabButton" id="settingsBtn" onclick="changeTab('settings', 'settingsBtn'); changePageName('Infrared – Settings');">
+    <button class="tabButton" id="qlBtn"  style="display: none;"
+      onclick="changeTab('quicklinks', 'qlBtn'); changePageName('Infrared – Quicklinks');">
+      <span class="svgWrapper">
+        <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
+          <path
+            d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z' />
+        </svg>
+      </span>
+    </button>
+    <button class="tabButton" id="settingsBtn"
+      onclick="changeTab('settings', 'settingsBtn'); changePageName('Infrared – Settings');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -97,16 +109,25 @@
     <div class="flex-center logo-wrapper header-center">
       <div class="logo" alt="Infrared Logo" title="Infrared Logo">⛅️</div>
       <h1>Infrared</h1>
-      <span><i>Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
+      <span><i class="subtitle">Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
       <form id="uv-form">
         <div id="form-container">
           <input id="uv-address" type="text" placeholder="Enter URL or search" />
         </div>
       </form>
+      <br><div id="ir-custom-server-warning">⚠️ USING CUSTOM SERVER! ⚠️</div>
     </div>
     <div class="desc left-margin">
       <p id="uv-error"></p>
       <pre id="uv-error-code"></pre>
+    </div>
+  </div>
+  <div id="quicklinks" class="tab">
+    <h1>Quicklinks</h1>
+    <i style="font-size: 0.9em;">Note: these don't work quite yet.</i><br><br>
+    <div class="quicklink">
+      <img src="https://icons.duckduckgo.com/ip3/blog.bomberfish.ca.ico" alt="Favicon" />
+      <button onclick="await proxySite('https\:\/\/blog.bomberfish.ca')">BomberFish's Blog</button>
     </div>
   </div>
   <div id="settings" class="tab">
@@ -114,32 +135,43 @@
     <div id="uv-search-engine-container">
       <div class="setting-row">
         <span class="setting-title">Search engine</span>
-        <span class="select">
-          <select name="uv-search-engine" id="uv-search-engine"
-            onchange="save('searchEngine', this.options[this.selectedIndex].value)">
-            <option value="https://www.duckduckgo.com/?q=%s" selected>DuckDuckGo</option>
-            <option value="https://www.google.com/search?q=%s">Google</option>
-            <option value="https://www.bing.com/search?q=%s">Bing</option>
-            <option value="https://search.brave.com/search?q=%s">Brave</option>
-            <option value="https://www.qwant.com/?q=%s&t=web">Qwant</option>
-            <option value="https://www.swisscows.com/en/web?query=%s">Swisscows</option>
-            <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
-          </select>
-          <span class="focus"></span>
+        <span class="setting-option">
+          <span class="select">
+            <select name="uv-search-engine" id="uv-search-engine"
+              onchange="save('searchEngine', this.options[this.selectedIndex].value)">
+              <option value="https://www.duckduckgo.com/?q=%s" selected>DuckDuckGo</option>
+              <option value="https://www.google.com/search?q=%s">Google</option>
+              <option value="https://www.bing.com/search?q=%s">Bing</option>
+              <option value="https://search.brave.com/search?q=%s">Brave</option>
+              <option value="https://www.qwant.com/?q=%s&t=web">Qwant</option>
+              <option value="https://www.swisscows.com/en/web?query=%s">Swisscows</option>
+              <option value="https://www.mojeek.com/search?q=%s">Mojeek</option>
+            </select>
+            <span class="focus"></span>
+          </span>
         </span>
       </div>
     </div>
     <div class="setting-row">
       <span class="setting-title"> Icon style </span>
-      <span class="select">
-        <select name="ir-icons" id="ir-icons"
-          onchange="save('iconTheme', this.options[this.selectedIndex].value); switchIcons(this.options[this.selectedIndex].value)">
-          <option value="material" selected>Google</option>
-          <option value="sanfrancisco">Apple</option>
-        </select>
-        <span class="focus"></span>
+      <span class="setting-option">
+        <span class="select">
+          <select name="ir-icons" id="ir-icons"
+            onchange="save('iconTheme', this.options[this.selectedIndex].value); switchIcons(this.options[this.selectedIndex].value)">
+            <option value="material" selected>Google</option>
+            <option value="sanfrancisco">Apple</option>
+          </select>
+          <span class="focus"></span>
+        </span>
       </span>
     </div>
+    <div class="setting-row">
+      <span class="setting-title"> Custom Bare Server </span>
+      <span class="setting-option">
+        <input type="text" name="ir-custom-server" id="ir-custom-server" class="textbox">
+      </span>
+    </div>
+    <p style="font-size: 0.8em;">⚠️ Do not change this setting unless you know what you're doing.<br>Any changes to this field will be reset on reload.</p><br>
     <div id="bottom-buttons">
       <button class="btn primary" onclick="localStorage.clear();window.location.reload();">Reset settings</button>
     </div>
@@ -159,6 +191,10 @@
       <span>&nbsp;<a href="credits.html" target="_blank">Licence Notices</a></span><br>
     </div>
   </footer>
+  <!-- 100% privacy-first analytics -->
+  <script async defer src="https://site-stats.bomberfish.ca/latest.js"></script>
+  <noscript><img src="https://site-stats.bomberfish.ca/noscript.gif" alt=""
+      referrerpolicy="no-referrer-when-downgrade" /></noscript>
 </body>
 <script src="tabs.js" defer></script>
 
