@@ -1,8 +1,18 @@
 // This file overwrites the stock UV config.js
 
+if (localStorage.getItem("customServer") == null) {
+  let server = "https://backend.infrared.bomberfish.ca";
+} else {
+  let server = localStorage.getItem("customServer");
+}
+
+if (self.__uv$config.bare != "https://backend.infrared.bomberfish.ca") {
+  console.warn("Using a custom bare server. Support will not be provided.")
+}
+
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: "https://backend.infrared.bomberfish.ca",
+  bare: server,
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
