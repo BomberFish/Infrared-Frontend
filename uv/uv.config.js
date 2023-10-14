@@ -16,10 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOMContentLoaded event fired");
   const serverTextBox = document.getElementById("ir-custom-server");
   const warningLabel = document.getElementById("ir-custom-server-warning");
-  serverTextBox.value = self.__uv$config.bare;
+  if (localStorage.getItem("customServer") == null) {
+    serverTextBox.value = self.__uv$config.bare;
+  } else {
+    serverTextBox.value = localStorage.getItem("customServer");
+  }
 
   serverTextBox.addEventListener("change", () => {
-    self.__uv$config.bare = serverTextBox.value;
+    localStorage.setItem("customServer", serverTextBox.value);
+    self.__uv$config.bare = localStorage.getItem("customServer");
 
     if (serverTextBox.value != "https://backend.infrared.bomberfish.ca") {
       warningLabel.classList.add("shown");
