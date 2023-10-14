@@ -36,5 +36,7 @@ async function proxySite(urlToProxy) {
   }
 
   const formattedURL = search(urlToProxy, searchEngine.value);
+  console.log(formattedURL)
+  console.log(__uv$config.bare)
   location.href = __uv$config.prefix + __uv$config.encodeUrl(formattedURL);
 }
