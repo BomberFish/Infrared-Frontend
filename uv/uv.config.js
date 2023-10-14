@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     serverTextBox.value = localStorage.getItem("customServer");
     self.__uv$config.bare = localStorage.getItem("customServer");
+    if (self.__uv$config.bare != "https://backend.infrared.bomberfish.ca") {
+      warningLabel.classList.add("shown");
+      console.warn("Using a custom bare server. Support will not be provided.")
+    } else {
+      warningLabel.classList.remove("shown");
+    }
   }
 
   serverTextBox.addEventListener("change", () => {
