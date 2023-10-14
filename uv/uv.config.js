@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     serverTextBox.value = self.__uv$config.bare;
   } else {
     serverTextBox.value = localStorage.getItem("customServer");
+    self.__uv$config.bare = localStorage.getItem("customServer");
   }
 
   serverTextBox.addEventListener("change", () => {
