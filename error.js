@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 const error = document.getElementById("uv-error");
 const errorCode = document.getElementById("uv-error-code");
 const errorDesc = document.getElementById("uv-error-desc");
