@@ -1,6 +1,7 @@
 "use strict";
 const error = document.getElementById("uv-error");
 const errorCode = document.getElementById("uv-error-code");
+const errorDesc = document.getElementById("uv-error-desc");
 const registerButton = document.getElementById("uv-register-sw");
 
 if (location.pathname.startsWith(__uv$config.prefix)) {
@@ -15,6 +16,7 @@ registerButton.addEventListener("click", async () => {
   } catch (err) {
     error.textContent = "❌ Failed to register service worker.";
     errorCode.textContent = err.toString();
+    errorDesc.textContent = "Please reload the page and try again."
     registerButton.classList.remove("show");
   }
 });

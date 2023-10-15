@@ -18,6 +18,10 @@ const error = document.getElementById("uv-error");
  * @type {HTMLPreElement}
  */
 const errorCode = document.getElementById("uv-error-code");
+/**
+ * @type {HTMLPreElement}
+ */
+const errorDesc = document.getElementById("uv-error-desc");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -32,6 +36,7 @@ async function proxySite(urlToProxy) {
   } catch (err) {
     error.textContent = "❌ Failed to register service worker.";
     errorCode.textContent = err.toString();
+    errorDesc.textContent = "Please reload the page and try again."
     throw err;
   }
 
