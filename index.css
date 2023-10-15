@@ -5,6 +5,9 @@
 * Browsers: last 70 version
 */
 
+/* fuck you */
+@import url("./catppuccin.css");
+
 /* reset */
 *,
 *::before,
@@ -23,7 +26,11 @@ body {
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.auto {
@@ -34,7 +41,7 @@ body.auto {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --purple: rebeccapurple;
+  --links: rebeccapurple;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,7 +53,7 @@ body.auto {
     --mg: #888;
     --err: #ff6666;
     --warn: #eebb00;
-    --purple: rebeccapurple;
+    --links: rebeccapurple;
   }
 }
 
@@ -58,7 +65,7 @@ body.day {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --purple: rebeccapurple;
+  --links: rebeccapurple;
 }
 
 body.night {
@@ -69,7 +76,7 @@ body.night {
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --purple: rebeccapurple;
+  --links: rebeccapurple;
 }
 
 body.midnight {
@@ -80,10 +87,11 @@ body.midnight {
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --purple: rebeccapurple;
+  --links: rebeccapurple;
 }
 
 body.flashbang {
+  -webkit-filter: brightness(1.2) contrast(1.3);
   filter: brightness(1.2) contrast(1.3);
   --accent: #c5598f;
   --accent-light: #c686a6;
@@ -92,7 +100,51 @@ body.flashbang {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --purple: rebeccapurple;
+  --links: rebeccapurple;
+}
+
+body.latte {
+  --fg: var(--ctp-latte-text);
+  --bg: var(--ctp-latte-base);
+  --mg: var(--ctp-latte-overlay1);
+  --err: var(--ctp-latte-red);
+  --warn: var(--ctp-latte-yellow);
+  --link: var(--ctp-latte-blue);
+  --accent: var(--ctp-latte-maroon);
+  --accent-light: rgba(var(--ctp-latte-maroon-raw), 0.8)
+}
+
+body.frappe {
+  --fg: var(--ctp-frappe-text);
+  --bg: var(--ctp-frappe-base);
+  --mg: var(--ctp-frappe-overlay1);
+  --err: var(--ctp-frappe-red);
+  --warn: var(--ctp-frappe-yellow);
+  --link: var(--ctp-frappe-blue);
+  --accent: var(--ctp-frappe-maroon);
+  --accent-light: rgba(var(--ctp-frappe-maroon-raw), 0.8)
+}
+
+body.macchiato {
+  --fg: var(--ctp-macchiato-text);
+  --bg: var(--ctp-macchiato-base);
+  --mg: var(--ctp-macchiato-overlay1);
+  --err: var(--ctp-macchiato-red);
+  --warn: var(--ctp-macchiato-yellow);
+  --link: var(--ctp-macchiato-blue);
+  --accent: var(--ctp-macchiato-maroon);
+  --accent-light: rgba(var(--ctp-macchiato-maroon-raw), 0.8)
+}
+
+body.mocha {
+  --fg: var(--ctp-mocha-text);
+  --bg: var(--ctp-mocha-base);
+  --mg: var(--ctp-mocha-overlay1);
+  --err: var(--ctp-mocha-red);
+  --warn: var(--ctp-mocha-yellow);
+  --link: var(--ctp-mocha-blue);
+  --accent: var(--ctp-mocha-maroon);
+  --accent-light: rgba(var(--ctp-mocha-maroon-raw), 0.8)
 }
 
 /* body styles */
@@ -448,6 +500,8 @@ form {
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #form-container:has(:focus) {
@@ -463,6 +517,8 @@ form {
   -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 
@@ -487,7 +543,7 @@ form {
 }
 
 .credit a:hover {
-  color: var(--purple) !important;
+  color: var(--links) !important;
 }
 
 .credit {
