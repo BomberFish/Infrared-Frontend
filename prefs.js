@@ -20,6 +20,8 @@ function registerDefault(key, value) {
     }
 }
 
+registerDefault("theme", "auto")
+
 function switchTheme(theme) {
     console.log("changing theme to " + theme)
     document.body.classList.forEach((className) => {
@@ -29,7 +31,6 @@ function switchTheme(theme) {
     document.body.classList.add(theme);
 }
 
-registerDefault("theme", "auto")
 document.getElementById("ir-theme").value = load("theme")
 switchTheme(load("theme"))
 
