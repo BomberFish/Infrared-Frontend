@@ -14,7 +14,7 @@
 }
 
 /* variables */
-:root {
+html {
   --font-sans: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI Variable",
     "Segoe UI", "Roboto Flex", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif,
@@ -26,11 +26,15 @@
   --accent-light: #b43c78;
   --fg: #000;
   --bg: #fff;
+  --mg: #888;
+  --err: #ff6666;
+  --warn: #eebb00;
+  --purple: rebeccapurple;
 }
 
 /* variables (dark) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  html {
     --fg: #fff;
     --bg: #121212;
   }
@@ -102,7 +106,7 @@ pre {
 
 /* uv logs */
 #uv-error {
-  color: #ff6666 !important;
+  color: var(--err) !important;
   white-space: pre-wrap;
 }
 
@@ -114,7 +118,7 @@ pre {
 
 #uv-register-sw {
   color: var(--fg);
-  background: #555555;
+  background: var(--mg);
   cursor: pointer;
   outline: none;
   border: none;
@@ -126,7 +130,7 @@ pre {
 }
 
 #uv-register-sw:active {
-  background: #333333;
+  background: var(--mg);
 }
 
 #uv-register-sw.show {
@@ -212,13 +216,13 @@ span:has(.subtitle),
   margin: 2px;
   padding: 5px;
   margin-bottom: 0.8rem;
-  color: #888;
+  color: var(--mg);
   text-align: center;
 }
 
 .desc p {
   width: 560px;
-  color: rgba(253, 253, 253, 0.514);
+  color: var(--mg);
 }
 
 /* address bar */
@@ -343,7 +347,7 @@ select:focus + .focus {
 
 #ir-custom-server-warning {
   display: none;
-  color: #eebb00;
+  color: var(--warn);
   font-size: 0.9em;
   font-weight: 600;
 }
@@ -408,7 +412,7 @@ form {
 }
 
 .credit a:hover {
-  color: rebeccapurple !important;
+  color: var(--purple) !important;
 }
 
 .credit {
@@ -522,7 +526,7 @@ form {
 }
 
 .tabButton:hover:not(.active) {
-  border-bottom: 4px solid #888;
+  border-bottom: 4px solid --mg;
 }
 
 nav {
@@ -617,7 +621,7 @@ button.btn.primary:active {
   color: var(--fg);
   font-size: 1rem;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border-bottom: #888 2px solid;
+  border-bottom: var(--mg) 2px solid;
 }
 
 .textbox:focus {
