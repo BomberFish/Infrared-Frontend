@@ -1,6 +1,6 @@
 // This file overwrites the stock UV config.js
 
-var server = "https://backend.infrared.bomberfish.ca";;
+var server = "https://backend.infrared.bomberfish.ca";
 
 if (localStorage.getItem("customServer") == null) {
   server = "https://backend.infrared.bomberfish.ca";
