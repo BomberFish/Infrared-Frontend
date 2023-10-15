@@ -32,10 +32,9 @@ function switchTheme(theme) {
 }
 
 if (load("theme") == null) {
-    document.getElementById("ir-theme").value = "auto"
-} else {
     document.getElementById("ir-theme").value = load("theme")
 }
+
 switchTheme(load("theme"))
 
 function switchIcons(style) {
