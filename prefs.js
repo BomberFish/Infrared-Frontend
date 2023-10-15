@@ -31,7 +31,11 @@ function switchTheme(theme) {
     document.body.classList.add(theme);
 }
 
-document.getElementById("ir-theme").value = load("theme")
+if (load("theme") == null) {
+    document.getElementById("ir-theme").value = "auto"
+} else {
+    document.getElementById("ir-theme").value = load("theme")
+}
 switchTheme(load("theme"))
 
 function switchIcons(style) {
@@ -59,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     registerDefault("searchEngine", "https://www.duckduckgo.com/?q=%s")
     document.getElementById("uv-search-engine").value = load("searchEngine")
     switchIcons(load("iconTheme"))
-    
+
     document.getElementById("ir-theme").value = load("theme")
     switchTheme(load("theme"))
 });
