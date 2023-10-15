@@ -10,18 +10,6 @@ function load(key) {
     return value
 }
 
-function registerDefault(key, value) {
-    let currentValue = load(key);
-    if (currentValue === null) {
-        console.log("registering default " + key + " " + value)
-        save(key, value);
-    } else {
-        console.log("not registering default " + key + ", already set to " + load(key))
-    }
-}
-
-registerDefault("theme", "auto")
-
 function switchTheme(theme) {
     console.log("changing theme to " + theme)
     document.body.classList.forEach((className) => {
@@ -36,6 +24,18 @@ if (load("theme") == null) {
 }
 
 switchTheme(load("theme"))
+
+function registerDefault(key, value) {
+    let currentValue = load(key);
+    if (currentValue === null) {
+        console.log("registering default " + key + " " + value)
+        save(key, value);
+    } else {
+        console.log("not registering default " + key + ", already set to " + load(key))
+    }
+}
+
+registerDefault("theme", "auto")
 
 function switchIcons(style) {
     console.log("changing tab icons to " + style)
