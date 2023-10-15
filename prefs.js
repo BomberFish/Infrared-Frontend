@@ -59,4 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     registerDefault("searchEngine", "https://www.duckduckgo.com/?q=%s")
     document.getElementById("uv-search-engine").value = load("searchEngine")
     switchIcons(load("iconTheme"))
+    
+    document.getElementById("ir-theme").value = load("theme")
+    switchTheme(load("theme"))
 });
