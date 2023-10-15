@@ -14,7 +14,7 @@
 
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: server,
+  bare: "https://backend.infrared.bomberfish.ca",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
