@@ -29,6 +29,7 @@ function switchTheme(theme) {
     document.body.classList.add(theme);
 }
 
+registerDefault("theme", "auto")
 document.getElementById("ir-theme").value = load("theme")
 switchTheme(load("theme"))
 
@@ -54,7 +55,6 @@ function switchIcons(style) {
 document.addEventListener("DOMContentLoaded", () => {
     registerDefault("iconTheme", "material")
     document.getElementById("ir-icons").value = load("iconTheme")
-    registerDefault("theme", "auto")
     registerDefault("searchEngine", "https://www.duckduckgo.com/?q=%s")
     document.getElementById("uv-search-engine").value = load("searchEngine")
     switchIcons(load("iconTheme"))
