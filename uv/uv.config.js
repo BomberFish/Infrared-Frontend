@@ -40,7 +40,7 @@ self.__uv$config = {
    * @returns {Request|Response} The modified request or a response.
    */
   middleware: (request) => {
-    console.log("[middleware] running middleware ")
+    console.log("[middleware] executing middleware")
     return scanRequest(request, blockedSites);
   },
 };
