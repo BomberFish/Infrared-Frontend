@@ -41,19 +41,19 @@ body.auto {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --links: rebeccapurple;
+  --links: rgb(49, 60, 219);
 }
 
 @media (prefers-color-scheme: dark) {
   body.auto {
     --accent: #993366;
     --accent-light: #b43c78;
-    --fg: #fff;
+    --fg: #dedede;
     --bg: #121212;
     --mg: #888;
     --err: #ff6666;
     --warn: #eebb00;
-    --links: rebeccapurple;
+    --links: rgb(77, 88, 234);
   }
 }
 
@@ -65,18 +65,18 @@ body.day {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --links: rebeccapurple;
+  --links: rgb(49, 60, 219);
 }
 
 body.night {
-  --fg: #fff;
+  --fg: #dedede;
   --bg: #121212;
   --mg: #888;
   --accent: #993366; /* actually a flipped version of rebeccapurple */
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --links: rebeccapurple;
+  --links: rgb(77, 88, 234);
 }
 
 body.midnight {
@@ -87,7 +87,7 @@ body.midnight {
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --links: rebeccapurple;
+  --links: rgb(67, 77, 223);
 }
 
 body.flashbang {
@@ -330,14 +330,10 @@ footer .right {
 
 /* make links not shit */
 a {
-  text-decoration: none;
+  /* text-decoration: none; */
   cursor: pointer;
-  color: var(--accent) !important;
+  color: var(--links) !important;
   font-weight: 500;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
 
 /* subtitles */
