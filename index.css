@@ -177,6 +177,7 @@ input {
 
 /* devborder */
 #dev-border {
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -192,6 +193,10 @@ input {
     black 20px
   );
   margin: 0;
+}
+
+#dev-border.shown {
+  visibility: visible;
 }
 
 #dev-border::after {

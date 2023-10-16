@@ -28,8 +28,8 @@
   <link rel="apple-touch-icon" href="./ir-mobile.png">
   <link rel="apple-touch-icon-precomposed" href="./ir-mobile.png">
   <link rel="stylesheet" href="index.css" />
-  <script src="uv/uv.bundle.js" type="module" defer></script>
-  <script src="uv/uv.config.js" defer></script>
+  <script src="ir/uv.bundle.js" type="module" defer></script>
+  <script src="ir/uv.config.js" defer></script>
   <script src="register-sw.js" defer></script>
   <script src="search.js" defer></script>
   <script src="proxy.js" defer></script>
@@ -79,7 +79,7 @@
   <div id="dev-border"></div>
   <nav>
     <button class="tabButton active" id="homeBtn" aria-label="Home" title="Home"
-      onclick="changeTab('home', 'homeBtn'); changePageName('Infrared Dev – Home');">
+      onclick="changeTab('home', 'homeBtn'); changePageName('Home');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -88,7 +88,7 @@
       </span>
     </button>
     <button class="tabButton" id="qlBtn" aria-label="Quicklinks" title="Quicklinks"
-      onclick="changeTab('quicklinks', 'qlBtn'); changePageName('Infrared Dev – Quicklinks');">
+      onclick="changeTab('quicklinks', 'qlBtn'); changePageName('Quicklinks');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -97,7 +97,7 @@
       </span>
     </button>
     <button class="tabButton" id="settingsBtn" aria-label="Settings" title="Settings"
-      onclick="changeTab('settings', 'settingsBtn'); changePageName('Infrared Dev – Settings');">
+      onclick="changeTab('settings', 'settingsBtn'); changePageName('Settings');">
       <span class="svgWrapper">
         <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
           <path
@@ -108,8 +108,8 @@
   </nav>
   <div id="home" class="tab shown">
     <div class="flex-center logo-wrapper header-center">
-      <div class="logo" alt="Infrared Logo" title="Infrared Logo">🌥️</div>
-      <h1>Infrared Dev</h1>
+      <div class="logo" id="ir-logo" alt="Infrared Logo" title="Infrared Logo">⛅️</div>
+      <h1 id="main-title">Infrared</h1>
       <span><i class="subtitle">Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
       <form id="uv-form">
         <div id="form-container">
@@ -240,5 +240,13 @@
       referrerpolicy="no-referrer-when-downgrade" /></noscript>
 </body>
 <script src="tabs.js" defer></script>
+<script defer>
+  const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
+  if (isDev) {
+    document.getElementById("dev-border").classList.add("shown");
+    document.getElementById("ir-logo").innerHTML = "🌥️";
+    document.getElementById("main-title").innerHTML = "Infrared Dev";
+  }
+</script>
 
 </html>

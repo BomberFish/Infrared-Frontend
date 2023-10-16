@@ -24,15 +24,15 @@ function scanRequest(request, blockList) {
 }
 
 self.__uv$config = {
-  prefix: "/uv/service/",
+  prefix: "/ir/service/",
   bare: "https://backend.infrared.bomberfish.ca",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
-  handler: "/uv/uv.handler.js",
-  client: "/uv/uv.client.js",
-  bundle: "/uv/uv.bundle.js",
-  config: "/uv/uv.config.js",
-  sw: "/uv/uv.sw.js",
+  handler: "/ir/uv.handler.js",
+  client: "/ir/uv.client.js",
+  bundle: "/ir/uv.bundle.js",
+  config: "/ir/uv.config.js",
+  sw: "/ir/uv.sw.js",
   /**
    * Middleware function for handling requests.
    * @type {function}

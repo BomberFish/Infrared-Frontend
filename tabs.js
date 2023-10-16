@@ -14,12 +14,13 @@ function changeTab(id, buttonId) {
 }
 
 function changePageName(name) {
-    console.log("[tabs] changing page name to " + name)
-    document.getElementById("pageName").innerHTML = name;
+    const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
+    let title = (isDev ? "Infrared Dev – " : "Infrared – ") + name;
+    console.log("[tabs] changing page name to " + title)
+    document.getElementById("pageName").innerHTML = title
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    // console.log("transitioning to tabs view")
-    // document.getElementById("home").classList.remove("shown"); // seamlessly transition
     changeTab("home", "homeBtn");
+    changePageName('Home');
 });
