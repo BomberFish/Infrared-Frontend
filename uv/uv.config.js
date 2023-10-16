@@ -8,7 +8,9 @@ const blockedSites = ["duckduckgo.com"]
 * @returns {Request|Response}
 */
 function scanRequest(request, blockList) {
+  console.log("[blocking] scanning" + request.url)
   if (blockList.includes(request.url)) {
+    console.warn("[blocking] blocked " + request.url)
     return fetch('/blockpage.html')
       .then(response => {
         return new Response(response.body, {
