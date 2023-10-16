@@ -1,4 +1,4 @@
-const blockedSites = []
+const blockedSites = ["duckduckgo.com"]
 
 /**
 * Scan a request to see if it should be blocked.
