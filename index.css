@@ -458,6 +458,10 @@ select:focus + .focus {
   border-radius: inherit;
 }
 
+option {
+  background: var(--bg)
+}
+
 /* settings */
 .setting-row {
   margin-bottom: 1rem;
