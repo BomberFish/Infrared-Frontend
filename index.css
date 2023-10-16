@@ -33,6 +33,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 body.auto {
   --accent: #c5598f;
   --accent-light: #c686a6;
@@ -149,7 +150,6 @@ body.mocha {
 
 /* body styles */
 body {
-  font-family: var(--font-sans);
   margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
@@ -164,6 +164,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-size: 1.05em;
+}
+
+body,
+button,
+input {
+  font-family: var(--font-sans);
 }
 
 /* devborder */
@@ -398,7 +404,7 @@ select {
   padding: 0 1em 0 0;
   margin: 0;
   width: 100%;
-  font-family: inherit;
+  font-family: var(--font-sans);
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
