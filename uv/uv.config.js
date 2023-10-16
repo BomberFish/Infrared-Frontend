@@ -1,16 +1,25 @@
-// This file overwrites the stock UV config.js
+const blockedSites = []
 
-// var server = "https://backend.infrared.bomberfish.ca";
-
-// if (localStorage.getItem("customServer") == null) {
-//   server = "https://backend.infrared.bomberfish.ca";
-// } else {
-//   server = localStorage.getItem("customServer");
-// }
-
-// if (server != "https://backend.infrared.bomberfish.ca") {
-//   console.warn("Using a custom bare server. Support will not be provided.")
-// }
+/**
+* Scan a request to see if it should be blocked.
+* @type {function}
+* @param {Request} request
+* @param {[any]} blockList
+* @returns {Request|Response}
+*/
+function scanRequest(request, blockList) {
+  if (blockList.includes(request.url)) {
+    return fetch('/blockpage.html')
+      .then(response => {
+        return new Response(response.body, {
+          status: 403,
+          statusText: "Blocked",
+        });
+      });
+  } else {
+    return request
+  }
+}
 
 self.__uv$config = {
   prefix: "/uv/service/",
@@ -22,36 +31,15 @@ self.__uv$config = {
   bundle: "/uv/uv.bundle.js",
   config: "/uv/uv.config.js",
   sw: "/uv/uv.sw.js",
+  /**
+   * Middleware function for handling requests.
+   * @type {function}
+   * @param {Request} request - The request object.
+   * @returns {Request|Response} The modified request or a response.
+   */
+  middleware: (request) => {
+    return scanRequest(request, blockedSites);
+  },
 };
 
 console.log(self.__uv$config)
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   console.log("DOMContentLoaded event fired");
-//   const serverTextBox = document.getElementById("ir-custom-server");
-//   const warningLabel = document.getElementById("ir-custom-server-warning");
-//   if (localStorage.getItem("customServer") == null) {
-//     serverTextBox.value = self.__uv$config.bare;
-//   } else {
-//     serverTextBox.value = localStorage.getItem("customServer");
-//     self.__uv$config.bare = localStorage.getItem("customServer");
-//     if (self.__uv$config.bare != "https://backend.infrared.bomberfish.ca") {
-//       warningLabel.classList.add("shown");
-//       console.warn("Using a custom bare server. Support will not be provided.")
-//     } else {
-//       warningLabel.classList.remove("shown");
-//     }
-//   }
-
-//   serverTextBox.addEventListener("change", () => {
-//     localStorage.setItem("customServer", serverTextBox.value);
-//     self.__uv$config.bare = localStorage.getItem("customServer");
-
-//     if (serverTextBox.value != "https://backend.infrared.bomberfish.ca") {
-//       warningLabel.classList.add("shown");
-//       console.warn("Using a custom bare server. Support will not be provided.")
-//     } else {
-//       warningLabel.classList.remove("shown");
-//     }
-//   });
-// });

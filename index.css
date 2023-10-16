@@ -153,6 +153,9 @@ body {
   margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
+}
+
+body.flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
