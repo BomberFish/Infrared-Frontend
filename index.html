@@ -75,7 +75,7 @@
     </script>
 </head>
 
-<body class="auto flex">
+<body class="auto flex" style="overflow: none;">
   <div id="dev-border"></div>
   <nav>
     <button class="tabButton active" id="homeBtn" aria-label="Home" title="Home"
@@ -243,9 +243,9 @@
 <script defer>
   const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
   if (isDev) {
-    document.getElementById("dev-border").classList.add("shown");
     document.getElementById("ir-logo").innerHTML = "🌥️";
     document.getElementById("main-title").innerHTML = "Infrared Dev";
+    document.getElementById("dev-border").classList.add("shown");
   }
 </script>
 
