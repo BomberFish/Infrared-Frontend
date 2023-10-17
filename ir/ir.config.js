@@ -28,11 +28,11 @@ self.__uv$config = {
   bare: "https://backend.infrared.bomberfish.ca",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
-  handler: "/ir/uv.handler.js",
-  client: "/ir/uv.client.js",
-  bundle: "/ir/uv.bundle.js",
-  config: "/ir/uv.config.js",
-  sw: "/ir/uv.sw.js",
+  handler: "/ir/ir.handler.js",
+  client: "/ir/ir.client.js",
+  bundle: "/ir/ir.bundle.js",
+  config: "/ir/ir.config.js",
+  sw: "/ir/ir.sw.js",
   /**
    * Middleware function for handling requests.
    * @type {function}
