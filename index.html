@@ -244,8 +244,16 @@
   const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
   if (isDev) {
     document.getElementById("ir-logo").innerHTML = "🌥️";
-    document.getElementById("main-title").innerHTML = "Infrared Dev";
     document.getElementById("dev-border").classList.add("shown");
+    const letters = [" ", "D", "e", "v"]
+    setTimeout(() => {
+      console.log("waiting 1.5 seconds...")
+    }, 1500);
+    letters.forEach((letter, i) => {
+      setTimeout(() => {
+        document.getElementById("main-title").innerHTML += letter;
+      }, i * 60);
+    });
   }
 </script>
 
