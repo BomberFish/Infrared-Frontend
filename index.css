@@ -92,6 +92,21 @@ body.midnight {
   --links: rgb(67, 77, 223);
 }
 
+body.hub {
+  --fg: #fff;
+  --bg: #000;
+  --mg: #444;
+  --accent: #ff9000; /* actually a flipped version of rebeccapurple */
+  --accent-light: #ffb030;
+  --err: #fa4444;
+  --warn: #e0b311;
+  --links: #ff9000;
+}
+
+option[bold] {
+  font-weight: 600;
+}
+
 body.flashbang {
   -webkit-filter: brightness(1.2) contrast(1.3);
   filter: brightness(1.2) contrast(1.3);

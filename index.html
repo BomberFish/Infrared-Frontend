@@ -176,15 +176,23 @@
         <span class="select">
           <select name="ir-theme" id="ir-theme"
             onchange="save('theme', this.options[this.selectedIndex].value); switchTheme(this.options[this.selectedIndex].value)">
-            <option value="auto">Auto</option>
-            <option value="day" selected>Day</option>
-            <option value="flashbang" selected>Flashbang</option>
-            <option value="night" selected>Night</option>
-            <option value="midnight" selected>Midnight</option>
-            <option value="latte" selected>Catppuccin Latte</option>
-            <option value="frappe" selected>Catppuccin Frappé</option>
-            <option value="macchiato" selected>Catppuccin Macchiato</option>
-            <option value="mocha" selected>Catppuccin Mocha</option>
+            <optgroup label="Stock">
+              <option value="auto" selected>Auto</option>
+              <option value="day">Day</option>
+              <option value="flashbang">Flashbang</option>
+              <option value="night">Night</option>
+              <option value="midnight">Midnight</option>
+            </optgroup>
+            <optgroup label="Catppuccin">
+              <option value="latte">Latte</option>
+              <option value="frappe">Frappé</option>
+              <option value="macchiato">Macchiato</option>
+              <option value="mocha">Mocha</option>
+            </optgroup>
+            <optgroup label="shitposting">
+              <!-- this is how sodium bandwidth was wasted -->
+              <option value="hub">The Hub</option>
+            </optgroup>
           </select>
           <span class="focus"></span>
         </span>
