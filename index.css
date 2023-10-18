@@ -25,12 +25,13 @@ body {
   --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
 
-  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-  -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+body,
+body:has(#dev-border) {
+  -webkit-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  -o-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
 }
 
 
@@ -213,13 +214,6 @@ input {
 
 body:has(#dev-border.shown) {
   margin-top: 12px;
-}
-
-body,
-body:has(#dev-border) {
-  -webkit-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)!important;
-  -o-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)!important;
-  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)!important;
 }
 
 /* disabled */
