@@ -26,11 +26,11 @@ body {
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
-  -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
