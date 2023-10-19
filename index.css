@@ -326,6 +326,13 @@ pre {
   margin-top: 0rem;
 }
 
+.logo > svg {
+  transform: scale(1.3);
+}
+.logo > svg > g > g {
+  fill: var(--fg)!important;
+}
+
 .logo-wrapper .text {
   font-size: 75px;
   color: var(--fg);
