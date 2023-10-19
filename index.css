@@ -71,7 +71,7 @@ body.day {
 }
 
 body.night {
-  --fg: #dedede;
+  --fg: #fff;
   --bg: #121212;
   --mg: #888;
   --accent: #993366; /* actually a flipped version of rebeccapurple */
@@ -82,7 +82,7 @@ body.night {
 }
 
 body.midnight {
-  --fg: #fff;
+  --fg: #dedede;
   --bg: #000;
   --mg: #444;
   --accent: #993366; /* actually a flipped version of rebeccapurple */
