@@ -50,7 +50,7 @@ body.auto {
   body.auto {
     --accent: #993366;
     --accent-light: #b43c78;
-    --fg: #dedede;
+    --fg: #fff;
     --bg: #121212;
     --mg: #888;
     --err: #ff6666;
@@ -82,7 +82,7 @@ body.night {
 }
 
 body.midnight {
-  --fg: #dedede;
+  --fg: #fff;
   --bg: #000;
   --mg: #444;
   --accent: #993366; /* actually a flipped version of rebeccapurple */
