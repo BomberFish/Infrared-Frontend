@@ -1,25 +1,26 @@
 function changeTab(id, buttonId) {
-    console.log("changing tab")
+    console.log("[tabs] changing tab to" + id)
     document.querySelectorAll(".tab").forEach((tab) => {
-        console.log("removing shown class")
+        console.log("[tabs] removing shown class")
         tab.classList.remove("shown");
     })
     document.getElementById(id).classList.add("shown");
     document.querySelectorAll(".tabButton").forEach((tab) => {
-        console.log("removing active class")
+        console.log("[tabs] removing active class")
         tab.classList.remove("active");
     })
     document.getElementById(buttonId).classList.add("active");
-    console.log("setting button class")
+    console.log("[tabs] setting button class")
 }
 
 function changePageName(name) {
-    console.log("Changing page name to " + name)
-    document.getElementById("pageName").innerHTML = name;
+    const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
+    let title = (isDev ? "Infrared Dev – " : "Infrared – ") + name;
+    console.log("[tabs] changing page name to " + title)
+    document.getElementById("pageName").innerHTML = title
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    // console.log("transitioning to tabs view")
-    // document.getElementById("home").classList.remove("shown"); // seamlessly transition
     changeTab("home", "homeBtn");
+    changePageName('Home');
 });

@@ -1,22 +1,27 @@
 // school toilet paper-thin wrapper around localStorage.
 function save(key, value) {
-    console.log("setting key " + key + " to value " + value)
+    console.log("[prefs] setting key " + key + " to value " + value)
     localStorage.setItem(key, value);
 }
 
 function load(key) {
-    console.log("loading " + key)
+    console.log("[prefs] loading " + key)
     let value = localStorage.getItem(key);
     return value
 }
 
 function switchTheme(theme) {
-    console.log("changing theme to " + theme)
-    document.body.classList.forEach((className) => {
-        document.body.classList.remove(className);
-    });
+    console.log("[themes] changing theme to " + theme)
+
+    let pageIsFlex = document.body.classList.contains("flex");
+
+    document.body.className = '';
 
     document.body.classList.add(theme);
+    if (pageIsFlex) {
+        console.log("[themes] re-adding flex attribute")
+        document.body.classList.add("flex");
+    }
 }
 
 if (load("theme") == null) {
@@ -28,17 +33,17 @@ switchTheme(load("theme"))
 function registerDefault(key, value) {
     let currentValue = load(key);
     if (currentValue === null) {
-        console.log("registering default " + key + " " + value)
+        console.log("[prefs] registering default " + key + " " + value)
         save(key, value);
     } else {
-        console.log("not registering default " + key + ", already set to " + load(key))
+        console.log("[prefs] not registering default " + key + ", already set to " + load(key))
     }
 }
 
 registerDefault("theme", "auto")
 
 function switchIcons(style) {
-    console.log("changing tab icons to " + style)
+    console.log("[icon] changing tab icons to " + style)
     if (style === "sanfrancisco") {
         document.querySelector("#homeBtn > .svgWrapper > svg").style.scale = "1.2";
         document.querySelector("#settingsBtn > .svgWrapper > svg").style.scale = "1.2";

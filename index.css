@@ -25,13 +25,15 @@ body {
   --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-  -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+body,
+body:has(#dev-border) {
+  -webkit-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  -o-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+}
+
 
 body.auto {
   --accent: #c5598f;
@@ -41,7 +43,7 @@ body.auto {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --links: rebeccapurple;
+  --links: rgb(49, 60, 219);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,7 +55,7 @@ body.auto {
     --mg: #888;
     --err: #ff6666;
     --warn: #eebb00;
-    --links: rebeccapurple;
+    --links: rgb(77, 88, 234);
   }
 }
 
@@ -65,7 +67,7 @@ body.day {
   --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
-  --links: rebeccapurple;
+  --links: rgb(49, 60, 219);
 }
 
 body.night {
@@ -76,7 +78,7 @@ body.night {
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --links: rebeccapurple;
+  --links: rgb(77, 88, 234);
 }
 
 body.midnight {
@@ -87,7 +89,22 @@ body.midnight {
   --accent-light: #b43c78;
   --err: #fa4444;
   --warn: #e0b311;
-  --links: rebeccapurple;
+  --links: rgb(67, 77, 223);
+}
+
+body.hub {
+  --fg: #fff;
+  --bg: #000;
+  --mg: #444;
+  --accent: #ff9000; /* actually a flipped version of rebeccapurple */
+  --accent-light: #ffb030;
+  --err: #fa4444;
+  --warn: #e0b311;
+  --links: #ff9000;
+}
+
+option[bold] {
+  font-weight: 600;
 }
 
 body.flashbang {
@@ -149,10 +166,12 @@ body.mocha {
 
 /* body styles */
 body {
-  font-family: var(--font-sans);
   margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
+}
+
+body.flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -164,6 +183,52 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-size: 1.05em;
+}
+
+body,
+button,
+input {
+  font-family: var(--font-sans);
+}
+
+/* devborder */
+#dev-border {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  border-top: 0px solid var(--warn);
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(
+    -9deg,
+    var(--warn),
+    var(--warn) 10px,
+    black 10px,
+    black 20px
+  );
+  margin: 0;
+}
+
+#dev-border.shown {
+  border-width: 12px;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 1;
+}
+
+#dev-border::after {
+  display: block;
+  border-bottom: 1px solid var(--fg);
+}
+
+body:has(#dev-border.shown) {
+  margin-top: 12px;
 }
 
 /* disabled */
@@ -261,6 +326,13 @@ pre {
   margin-top: 0rem;
 }
 
+.logo > svg {
+  transform: scale(1.3);
+}
+.logo > svg > g > g {
+  fill: var(--fg)!important;
+}
+
 .logo-wrapper .text {
   font-size: 75px;
   color: var(--fg);
@@ -306,14 +378,10 @@ footer .right {
 
 /* make links not shit */
 a {
-  text-decoration: none;
+  /* text-decoration: none; */
   cursor: pointer;
-  color: var(--accent) !important;
+  color: var(--links) !important;
   font-weight: 500;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
 
 /* subtitles */
@@ -378,7 +446,7 @@ select {
   padding: 0 1em 0 0;
   margin: 0;
   width: 100%;
-  font-family: inherit;
+  font-family: var(--font-sans);
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
@@ -436,6 +504,10 @@ select:focus + .focus {
   border: 2px solid var(--select-focus);
   -webkit-border-radius: inherit;
   border-radius: inherit;
+}
+
+option {
+  background: var(--bg)
 }
 
 /* settings */
