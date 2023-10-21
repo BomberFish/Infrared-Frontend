@@ -5,7 +5,6 @@
 * Browsers: last 70 version
 */
 
-/* fuck you */
 @import url("./catppuccin.css");
 
 /* reset */
@@ -29,11 +28,13 @@ body {
 
 body,
 body:has(#dev-border) {
-  -webkit-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
-  -o-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
-  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), all 0.75s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  -webkit-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    all 0.35s cubic-bezier(0.25, 0, 0.75, 1) !important;
+  -o-transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    all 0.35s cubic-bezier(0.25, 0, 0.75, 1) !important;
+  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    all 0.35s cubic-bezier(0.25, 0, 0.75, 1) !important;
 }
-
 
 body.auto {
   --accent: #c5598f;
@@ -96,11 +97,22 @@ body.hub {
   --fg: #fff;
   --bg: #000;
   --mg: #444;
-  --accent: #ff9000; /* actually a flipped version of rebeccapurple */
+  --accent: #ff9000;
   --accent-light: #ffb030;
   --err: #fa4444;
   --warn: #e0b311;
   --links: #ff9000;
+}
+
+body.hotdog {
+  --fg: #f00;
+  --bg: #ff0;
+  --mg: #f00;
+  --accent: #f00;
+  --accent-light: #f50;
+  --err: #f00;
+  --warn: #fa0;
+  --links: #f00;
 }
 
 option[bold] {
@@ -128,7 +140,7 @@ body.latte {
   --warn: var(--ctp-latte-yellow);
   --link: var(--ctp-latte-blue);
   --accent: var(--ctp-latte-maroon);
-  --accent-light: rgba(var(--ctp-latte-maroon-raw), 0.8)
+  --accent-light: rgba(var(--ctp-latte-maroon-raw), 0.8);
 }
 
 body.frappe {
@@ -139,7 +151,7 @@ body.frappe {
   --warn: var(--ctp-frappe-yellow);
   --link: var(--ctp-frappe-blue);
   --accent: var(--ctp-frappe-maroon);
-  --accent-light: rgba(var(--ctp-frappe-maroon-raw), 0.8)
+  --accent-light: rgba(var(--ctp-frappe-maroon-raw), 0.8);
 }
 
 body.macchiato {
@@ -150,7 +162,7 @@ body.macchiato {
   --warn: var(--ctp-macchiato-yellow);
   --link: var(--ctp-macchiato-blue);
   --accent: var(--ctp-macchiato-maroon);
-  --accent-light: rgba(var(--ctp-macchiato-maroon-raw), 0.8)
+  --accent-light: rgba(var(--ctp-macchiato-maroon-raw), 0.8);
 }
 
 body.mocha {
@@ -161,7 +173,7 @@ body.mocha {
   --warn: var(--ctp-mocha-yellow);
   --link: var(--ctp-mocha-blue);
   --accent: var(--ctp-mocha-maroon);
-  --accent-light: rgba(var(--ctp-mocha-maroon-raw), 0.8)
+  --accent-light: rgba(var(--ctp-mocha-maroon-raw), 0.8);
 }
 
 /* body styles */
@@ -194,9 +206,12 @@ input {
 /* devborder */
 #dev-border {
   opacity: 0;
-  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -216,9 +231,12 @@ input {
 
 #dev-border.shown {
   border-width: 12px;
-  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   opacity: 1;
 }
 
@@ -327,10 +345,12 @@ pre {
 }
 
 .logo > svg {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
   transform: scale(1.3);
 }
 .logo > svg > g > g {
-  fill: var(--fg)!important;
+  fill: var(--fg) !important;
 }
 
 .logo-wrapper .text {
@@ -490,7 +510,7 @@ select::-ms-expand {
   justify-self: end;
   width: 0.8em;
   height: 0.5em;
-  background-color: var(--fg);
+  background-color: var(--fg) !important;
   scale: 0.9;
   -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
@@ -507,7 +527,7 @@ select:focus + .focus {
 }
 
 option {
-  background: var(--bg)
+  background: var(--bg);
 }
 
 /* settings */
@@ -547,9 +567,10 @@ form {
 
 #form-container {
   border: 2px solid var(--accent);
-  box-shadow: 0px 0px 0px 1px var(--accent);
-  -webkit-box-shadow: 0px 0px 1px 0px var(--accent);
-  -moz-box-shadow: 0px 0px 1px 0px var(--accent);
+  box-shadow: 0px 0px 8px 0px transparent;
+  -webkit-box-shadow: 0px 0px 8px 0px transparent;
+  -moz-box-shadow: 0px 0px 8px 0px transparent;
+  
   color: var(--text-color);
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -574,6 +595,8 @@ form {
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #form-container:has(:focus) {
@@ -581,14 +604,16 @@ form {
   box-shadow: 0px 0px 8px 0px var(--accent);
   -webkit-box-shadow: 0px 0px 8px 0px var(--accent);
   -moz-box-shadow: 0px 0px 8px 0px var(--accent);
-  -webkit-border-radius: 10vw;
-  border-radius: 10vw;
+  -webkit-border-radius: 100vw;
+  border-radius: 100vw;
 
   -webkit-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   -o-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
