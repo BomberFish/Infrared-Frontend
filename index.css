@@ -502,6 +502,8 @@ select::-ms-expand {
 .select::after {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
+  grid-row: 1;
+  grid-column: 1;
   grid-area: select;
 }
 .select:not(.select--multiple)::after {
