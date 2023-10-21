@@ -4,18 +4,33 @@
  */
 async function getCompletions(query) {
     try {
-    const response = await fetch(`https://duckduckgo.com/ac/?q=${query}&type=list`);
-    const data = await response.json();
-    console.log("[suggestions] " + data)
-    let suggestions = data[1]
-    console.log("[suggestions] " + suggestions)
-    let parsedSuggestions = Array.isArray(suggestions) ? suggestions : suggestions.split(",");
-    // let jsonArray = JSON.stringify(parsedSuggestions);
-    console.log("[suggestions] " + parsedSuggestions)
-    return parsedSuggestions;
-    } catch (e){
+        console.log("[suggestions] fetching results for query " + query)
+        const response = await fetch(`https://decorsify.bomberfish-industries.workers.dev/?url=https://duckduckgo.com/ac/?q=${query}&type=list`);
+        const data = await response.json();
+        console.log("[suggestions] response:", data)
+        let parsedSuggestions = Array.isArray(data) ? data : data.split(",");
+        console.log("[suggestions] array:", parsedSuggestions)
+
+        let array = [];
+
+        // http://stackoverflow.com/questions/8430336/ddg#8430501
+        for(var i in parsedSuggestions){
+            var key = i;
+            var val = parsedSuggestions[i];
+            for(var j in val){
+                var sub_key = j;
+                var sub_val = val[j];
+                console.log("[suggestions] parsed element:"), sub_val
+                array.push(sub_val);
+            }
+        }
+
+        console.log("[suggestions] final array:", array)
+        return array;
+    } catch (e) {
         console.error(e)
-        return []
+        console.log("[suggestions] encountered an error, returning just query as suggestion")
+        return [query]
     }
 }
 
@@ -25,7 +40,20 @@ document.getElementById("uv-address").addEventListener("input", async (event) =>
     if (query === "") {
         console.log("[suggestions] form empty")
     } else {
-    getCompletions(query)
+        getCompletions(query)
+            .then((data) => {
+                console.log(typeof data);
+                data.forEach(element => {
+                    console.log(element);
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+})
+
+getCompletions("ultraviolet")
     .then((data) => {
         console.log(typeof data);
         data.forEach(element => {
@@ -35,16 +63,3 @@ document.getElementById("uv-address").addEventListener("input", async (event) =>
     .catch((error) => {
         console.error(error);
     });
-    }
-})
-
-getCompletions("ultraviolet")
-.then((data) => {
-    console.log(typeof data);
-    data.forEach(element => {
-        console.log(element);
-    });
-})
-.catch((error) => {
-    console.error(error);
-});
