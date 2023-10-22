@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 // school toilet paper-thin wrapper around localStorage.
 
 /**
