@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 /**
  * Distributed with Ultraviolet and compatible with most configurations.
  */

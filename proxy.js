@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @type {HTMLFormElement}
  */
@@ -19,7 +20,7 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 /**
- * @type {HTMLPreElement}
+ * @type {HTMLParagraphElement}
  */
 const errorDesc = document.getElementById("uv-error-desc");
 

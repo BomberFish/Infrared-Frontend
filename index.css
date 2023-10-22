@@ -601,8 +601,7 @@ form {
     -webkit-border-radius 0.2s linear !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.2s linear,
-    -webkit-border-radius 0.2s linear !important;
+    border-radius 0.2s linear, -webkit-border-radius 0.2s linear !important;
 }
 
 #form-container:has(:focus) {
@@ -882,8 +881,7 @@ button.btn.primary:active {
     -webkit-border-radius 0.2s linear !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.2s linear,
-    -webkit-border-radius 0.2s linear !important;
+    border-radius 0.2s linear, -webkit-border-radius 0.2s linear !important;
 }
 
 .suggestion {
@@ -902,9 +900,54 @@ button.btn.primary:active {
   cursor: pointer;
 }
 
-#suggestions-container:first-child {
+.suggestion:nth-child(1) {
   font-weight: 700;
 }
+
+/* tos */
+/* #terms_body {
+  margin: 0 2.1rem;
+} */
+
+/* about */
+#ir-about-icon,
+#icon-wrapper,
+.about-icon-portion {
+  width: 150px;
+  height: 150px;
+}
+
+#ir-about-icon {
+  transform-style: preserve-3d;
+  transform: translateZ(-100px) perspective(1000px);
+}
+
+#ir-about-logomark {
+  transform: translateZ(100px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#icon-wrapper > #ir-about-logomark,
+#icon-wrapper:hover > #ir-about-logomark {
+  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#icon-wrapper > #ir-about-logomark {
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
+
+#icon-wrapper:hover > #ir-about-logomark {
+  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+}
+
+/* #icon-wrapper,
+#icon-wrapper:hover {
+  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+} */
 
 @media screen and (orientation: portrait) {
   body {

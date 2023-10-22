@@ -20,6 +20,8 @@
   <meta name="image" content="./ir-icon-square.png" />
   <meta name="og:image" content="./ir-icon-square.png" />
   <meta name="theme-color" content="#b43c78" />
+  <meta name="apple-mobile-web-app-title" content="yes" />
+  <link rel="manifest" href="manifest.json">
   <!-- <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" /> -->
   <meta name="robots" content="index, follow, snippet" />
@@ -76,7 +78,7 @@
     </script>
 </head>
 
-<body class="auto flex" style="overflow: none;">
+<body class="auto flex" style="overflow: hidden;">
   <div id="dev-border"></div>
   <nav>
     <button class="tabButton active" id="homeBtn" aria-label="Home" title="Home"
@@ -106,24 +108,40 @@
         </svg>
       </span>
     </button>
+    <button class="tabButton" id="aboutBtn" aria-label="About" title="About"
+      onclick="changeTab('about', 'aboutBtn'); changePageName('About');">
+      <span class="svgWrapper">
+        <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
+          <path
+            d='M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z' />
+        </svg>
+      </span>
+    </button>
   </nav>
   <div id="home" class="tab shown">
     <div class="flex-center logo-wrapper header-center">
-      <div class="logo" id="ir-logo" alt="Infrared Logo" title="Infrared Logo"><?xml version="1.0" encoding="UTF-8"?>
-        <svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <!-- <title>ir-logomark</title> -->
-            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="logomark" transform="translate(59.831993, 50.345000) scale(-1.3, 1.3) translate(-59.831993, -50.345000) translate(19.000000, 32.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <path d="M11.750826,56.69 L42.2408762,56.69 C50.2721577,56.69 56.4999537,50.6100494 56.4999537,42.7848377 C56.4999537,35.0160119 50.1592595,29.1331057 41.733736,29.0767919 C38.4932333,22.9124245 32.6600038,19.1405853 25.6996681,19.1405853 C16.5131459,19.1405853 8.73565082,26.2619999 7.86207852,35.5226925 C3.18427724,36.9300704 0,40.9271651 0,45.9936104 C0,52.2425386 4.70597894,56.69 11.750826,56.69 Z M59.7404564,41.26476 C63.8827019,38.4501481 66.4191239,34.1715923 66.4191239,29.1893835 C66.4191239,21.4486967 60.2475966,15.2280155 52.4983802,15.2280155 C47.3977625,15.2280155 42.9738127,17.9865296 40.634692,22.03983 C41.8184999,23.2783385 42.8327801,24.6012637 43.6782541,26.233861 C52.9773859,26.9657249 58.9797463,32.7641783 59.7404564,41.26476 Z M36.1541127,16.1850627 C37.0839898,17.1139351 38.6057708,17.0857962 39.4793792,16.1850627 C40.3529876,15.2843293 40.3811219,13.8206375 39.4793792,12.9199041 L35.1397964,8.58510645 C34.2380536,7.68437302 32.7727217,7.68437302 31.8709789,8.58510645 C30.9692362,9.48583987 30.9410297,10.9777066 31.8709789,11.8784401 L36.1541127,16.1850627 Z M52.4983802,10.7806622 C53.7947255,10.7806622 54.8371401,9.68288432 54.8371401,8.44437586 L54.8371401,2.33627912 C54.8371401,1.06962094 53.7947255,0 52.4983802,0 C51.2020348,0 50.1592595,1.06962094 50.1592595,2.33627912 L50.1592595,8.44437586 C50.1592595,9.68288432 51.2020348,10.7806622 52.4983802,10.7806622 Z M73.2384631,31.5256699 L79.353361,31.5256699 C80.621572,31.5256699 81.6639866,30.4842059 81.6639866,29.1893835 C81.6639866,27.9227362 80.621572,26.8530972 79.353361,26.8530972 L73.2384631,26.8530972 C71.9983865,26.8530972 70.8993425,27.9227362 70.8993425,29.1893835 C70.8993425,30.4842059 71.9983865,31.5256699 73.2384631,31.5256699 Z M65.5173811,16.1850627 C66.3906288,17.0857962 67.9124098,17.1139351 68.8422869,16.1850627 L73.1536993,11.8784401 C74.0554421,10.9777066 74.0554421,9.48583987 73.1536993,8.58510645 C72.2519566,7.68437302 70.786805,7.68437302 69.8850622,8.58510645 L65.5173811,12.9199041 C64.6156384,13.8206375 64.6437728,15.2843293 65.5173811,16.1850627 Z M69.8850622,49.8498304 C70.786805,50.7505638 72.2519566,50.7224609 73.1536993,49.8217275 C74.0554421,48.9209941 74.0554421,47.4293795 73.1536993,46.556749 L68.7860182,42.2501623 C67.8842755,41.3775318 66.4191239,41.3494289 65.5173811,42.2501623 C64.6156384,43.1508957 64.6156384,44.6425103 65.5173811,45.5432437 L69.8850622,49.8498304 Z" id="Shape"></path>
-                </g>
+      <div class="logo" id="ir-logo" alt="Infrared Logo" title="Infrared Logo">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- <title>ir-logomark</title> -->
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="logomark"
+              transform="translate(59.831993, 50.345000) scale(-1.3, 1.3) translate(-59.831993, -50.345000) translate(19.000000, 32.000000)"
+              fill="#FFFFFF" fill-rule="nonzero">
+              <path
+                d="M11.750826,56.69 L42.2408762,56.69 C50.2721577,56.69 56.4999537,50.6100494 56.4999537,42.7848377 C56.4999537,35.0160119 50.1592595,29.1331057 41.733736,29.0767919 C38.4932333,22.9124245 32.6600038,19.1405853 25.6996681,19.1405853 C16.5131459,19.1405853 8.73565082,26.2619999 7.86207852,35.5226925 C3.18427724,36.9300704 0,40.9271651 0,45.9936104 C0,52.2425386 4.70597894,56.69 11.750826,56.69 Z M59.7404564,41.26476 C63.8827019,38.4501481 66.4191239,34.1715923 66.4191239,29.1893835 C66.4191239,21.4486967 60.2475966,15.2280155 52.4983802,15.2280155 C47.3977625,15.2280155 42.9738127,17.9865296 40.634692,22.03983 C41.8184999,23.2783385 42.8327801,24.6012637 43.6782541,26.233861 C52.9773859,26.9657249 58.9797463,32.7641783 59.7404564,41.26476 Z M36.1541127,16.1850627 C37.0839898,17.1139351 38.6057708,17.0857962 39.4793792,16.1850627 C40.3529876,15.2843293 40.3811219,13.8206375 39.4793792,12.9199041 L35.1397964,8.58510645 C34.2380536,7.68437302 32.7727217,7.68437302 31.8709789,8.58510645 C30.9692362,9.48583987 30.9410297,10.9777066 31.8709789,11.8784401 L36.1541127,16.1850627 Z M52.4983802,10.7806622 C53.7947255,10.7806622 54.8371401,9.68288432 54.8371401,8.44437586 L54.8371401,2.33627912 C54.8371401,1.06962094 53.7947255,0 52.4983802,0 C51.2020348,0 50.1592595,1.06962094 50.1592595,2.33627912 L50.1592595,8.44437586 C50.1592595,9.68288432 51.2020348,10.7806622 52.4983802,10.7806622 Z M73.2384631,31.5256699 L79.353361,31.5256699 C80.621572,31.5256699 81.6639866,30.4842059 81.6639866,29.1893835 C81.6639866,27.9227362 80.621572,26.8530972 79.353361,26.8530972 L73.2384631,26.8530972 C71.9983865,26.8530972 70.8993425,27.9227362 70.8993425,29.1893835 C70.8993425,30.4842059 71.9983865,31.5256699 73.2384631,31.5256699 Z M65.5173811,16.1850627 C66.3906288,17.0857962 67.9124098,17.1139351 68.8422869,16.1850627 L73.1536993,11.8784401 C74.0554421,10.9777066 74.0554421,9.48583987 73.1536993,8.58510645 C72.2519566,7.68437302 70.786805,7.68437302 69.8850622,8.58510645 L65.5173811,12.9199041 C64.6156384,13.8206375 64.6437728,15.2843293 65.5173811,16.1850627 Z M69.8850622,49.8498304 C70.786805,50.7505638 72.2519566,50.7224609 73.1536993,49.8217275 C74.0554421,48.9209941 74.0554421,47.4293795 73.1536993,46.556749 L68.7860182,42.2501623 C67.8842755,41.3775318 66.4191239,41.3494289 65.5173811,42.2501623 C64.6156384,43.1508957 64.6156384,44.6425103 65.5173811,45.5432437 L69.8850622,49.8498304 Z"
+                id="Shape"></path>
             </g>
-        </svg></div>
+          </g>
+        </svg>
+      </div>
       <h1 id="main-title">Infrared</h1>
       <span><i class="subtitle">Why bring the user to the proxy, when you can bring the proxy to the user?</i></span>
       <form id="uv-form">
         <div id="form-container">
           <input id="uv-address" type="text" placeholder="Enter URL or search" /><br>
-          
+
         </div>
       </form>
       <div id="suggestions-container">
@@ -244,16 +262,41 @@
     </div>
   </div>
   </div>
+  <div id="about" class="tab">
+    <div class="flex-center logo-wrapper header-center">
+      <div id="icon-wrapper" data-tilt data-tilt-glare data-tilt-max-glare="0.8" data-tilt-scale="1.1"
+        data-tilt-max="37.5" data-tilt-speed="400" data-tilt-perspective="400" data-tilt-glare-prerender="true"
+        data-tilt-gyroscope="true" data-tilt-reset="true">
+        <div class="js-tilt-glare"
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; border-radius: inherit;">
+          <div class="js-tilt-glare-inner">
+          </div>
+        </div>
+        <img src="ir-gradient-only.png" class="about-icon-portion" id="ir-about-icon" alt="Infrared Icon">
+        <img src="ir-logomark.svg" id="ir-about-logomark" class="about-icon-portion">
+      </div>
+      <h1>Infrared 1.1.0-b1</h1>
+      <p>The "holy crap, suggestions" release.</p>
+      <p>A <a href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project.</p>
+      <div>
+        <span> <a href="/tos" target="_blank">Terms of Service</a>&nbsp;</span>
+        <span style="color: #666">|</span>
+        <span> <a href="https://github.com/BomberFish/Infrared" target="_blank">GitHub</a>&nbsp;</span>
+        <span style="color: #666">|</span>
+        <span>&nbsp;<a href="/credits" target="_blank">Licence Notices</a></span><br>
+      </div>
+    </div>
+  </div>
   <div class="desc left-margin">
     <p id="uv-error"></p>
     <pre id="uv-error-code"></pre>
     <p id="uv-error-desc"></p>
   </div>
-  <footer>
+  <!-- <footer>
     <div class="left">
-      <span>Infrared <strong>1.1.0-b1</strong> – The "holy crap, suggestions" release.<br>A <a href="https://bomberfish.ca"
-          target="_blank">BomberFish Industries</a> project.<span></span><span>&nbsp;<a href="credits.html"
-            target="_blank">View licence notices.</a></span><br>
+      <span>Infrared <strong>1.1.0-b1</strong> – The "holy crap, suggestions" release.<br>A <a
+          href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project.<span></span><span>&nbsp;<a
+            href="credits.html" target="_blank">View licence notices.</a></span><br>
     </div>
     <div class="portrait-only">
       <span>Infrared <strong>1.1.0-b1</strong></span>
@@ -262,31 +305,32 @@
       <span style="color: #666">|</span>
       <span>&nbsp;<a href="credits.html" target="_blank">Licence Notices</a></span><br>
     </div>
-  </footer>
+  </footer> -->
   <!-- 100% privacy-first analytics -->
   <script async defer src="https://site-stats.bomberfish.ca/latest.js"></script>
   <noscript><img src="https://site-stats.bomberfish.ca/noscript.gif" alt=""
       referrerpolicy="no-referrer-when-downgrade" /></noscript>
-</body>
-<script src="tabs.js" defer></script>
-<script defer>
-  const isDev = (window.location.href.includes('infrared-dev.bomberfish.ca') || window.location.href.includes('localhost') || window.location.href.includes('127.0.0.1'));
-  if (isDev) {
-    // document.getElementById("ir-logo").innerHTML = "🌥️";
-    setTimeout(() => {
-      console.log("waiting 1 second...")
-    }, 1000);
-    document.getElementById("dev-border").classList.add("shown");
-    const letters = [" ", "D", "e", "v"]
-    setTimeout(() => {
-      console.log("waiting 1.5 seconds...")
-    }, 1500);
-    letters.forEach((letter, i) => {
+  <script src="tabs.js" defer></script>
+  <script defer>
+    const isDev = (window.location.href.startsWith('https://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://localhost') || window.location.href.startsWith('https://localhost') || window.location.href.startsWith('http://127.0.0.1') || window.location.href.startsWith('https://127.0.0.1'));
+    if (isDev) {
+      // document.getElementById("ir-logo").innerHTML = "🌥️";
       setTimeout(() => {
-        document.getElementById("main-title").innerHTML += letter;
-      }, i * 60);
-    });
-  }
-</script>
+        console.log("waiting 1 second...")
+      }, 1000);
+      document.getElementById("dev-border").classList.add("shown");
+      const letters = [" ", "D", "e", "v"]
+      setTimeout(() => {
+        console.log("waiting 1.5 seconds...")
+      }, 1500);
+      letters.forEach((letter, i) => {
+        setTimeout(() => {
+          document.getElementById("main-title").innerHTML += letter;
+        }, i * 60);
+      });
+    }
+  </script>
+  <script src="vanilla-tilt.min.js"></script>
+</body>
 
 </html>

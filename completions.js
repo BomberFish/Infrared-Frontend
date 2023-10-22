@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * @param {string} query
  * @returns {Array} Array of suggestions
@@ -34,7 +36,13 @@ async function getCompletions(query) {
     }
 }
 
+/**
+ * @type {HTMLInputElement}
+ */
 const address = document.getElementById("uv-address")
+/**
+ * @type {HTMLDivElement}
+ */
 const suggestions = document.getElementById("suggestions-container")
 
 function updateSuggestions() {
