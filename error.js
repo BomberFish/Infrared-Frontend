@@ -29,7 +29,8 @@ if (location.pathname.startsWith(__uv$config.prefix)) {
   registerButton.classList.add("show");
 }
 
-registerButton.addEventListener("click", async () => {
+registerButton.addEventListener("click", async (event) => {
+  event.preventDefault();
   try {
     await registerSW();
     location.reload();

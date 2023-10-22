@@ -24,8 +24,8 @@ const errorCode = document.getElementById("uv-error-code");
  */
 const errorDesc = document.getElementById("uv-error-desc");
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
   console.log("submit event fired")
   proxySite(address.value);
 });
@@ -48,7 +48,8 @@ async function proxySite(urlToProxy) {
 }
 
 document.querySelectorAll(".quicklink > button").forEach((button) => {
-  button.addEventListener("click", async () => {
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
     if (button.getAttribute("origin") == null) {
       console.error("Quicklink does not have an origin attribute.")
     } else {

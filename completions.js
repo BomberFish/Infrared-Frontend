@@ -73,14 +73,17 @@ function updateSuggestions() {
     }
 }
 address.addEventListener("input", async (event) => {
+    event.preventDefault();
     updateSuggestions()
 });
 
 address.addEventListener("focus", async (event) => {
+    event.preventDefault();
     updateSuggestions()
 });
 
 address.addEventListener("blur", async (event) => {
+    event.preventDefault();
     updateSuggestions()
 });
 

@@ -3,11 +3,12 @@
 
 <head>
   <script src="prefs.js"></script>
-  <!-- <link rel="preload" href="normalize.css" as="style" /> -->
+
+  <title id="pageName">Infrared – Home</title>
+
   <meta charset="utf-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
-  <title id="pageName">Infrared – Home</title>
   <meta name="title" content="Infrared Proxy" />
   <meta name="og:title" content="Infrared Proxy" />
   <meta name="description" content="A high-performance edge proxy running on Cloudflare's global network." />
@@ -21,21 +22,22 @@
   <meta name="og:image" content="./ir-icon-square.png" />
   <meta name="theme-color" content="#b43c78" />
   <meta name="apple-mobile-web-app-title" content="yes" />
-  <link rel="manifest" href="manifest.json">
-  <!-- <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" /> -->
   <meta name="robots" content="index, follow, snippet" />
   <meta name="googlebot" content="index, follow, snippet" />
+
+  <link rel="manifest" href="manifest.json">
   <link rel="shortcut icon" content="favicon.ico" />
   <link rel="apple-touch-icon" href="./ir-icon-square.png">
   <link rel="apple-touch-icon-precomposed" href="./ir-icon-square.png">
   <link rel="stylesheet" href="index.css" />
+
   <script src="ir/ir.bundle.js" type="module" defer></script>
   <script src="ir/ir.config.js" defer></script>
+  <script src="proxy.js" defer></script>
   <script src="register-sw.js" defer></script>
   <script src="search.js" defer></script>
   <script src="completions.js" defer></script>
-  <script src="proxy.js" defer></script>
+  <script src="tabs.js" defer></script>
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -310,7 +312,6 @@
   <script async defer src="https://site-stats.bomberfish.ca/latest.js"></script>
   <noscript><img src="https://site-stats.bomberfish.ca/noscript.gif" alt=""
       referrerpolicy="no-referrer-when-downgrade" /></noscript>
-  <script src="tabs.js" defer></script>
   <script defer>
     const isDev = (window.location.href.startsWith('https://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://localhost') || window.location.href.startsWith('https://localhost') || window.location.href.startsWith('http://127.0.0.1') || window.location.href.startsWith('https://127.0.0.1'));
     if (isDev) {

@@ -759,7 +759,7 @@ form {
 }
 
 .tabButton:hover:not(.active) {
-  border-bottom: 4px solid --mg;
+  border-bottom: 4px solid var(--mg);
 }
 
 nav {
