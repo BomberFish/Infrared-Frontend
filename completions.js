@@ -14,10 +14,10 @@ async function getCompletions(query) {
         let array = [];
 
         // http://stackoverflow.com/questions/8430336/ddg#8430501
-        for(var i in parsedSuggestions){
+        for (var i in parsedSuggestions) {
             var key = i;
             var val = parsedSuggestions[i];
-            for(var j in val){
+            for (var j in val) {
                 var sub_key = j;
                 var sub_val = val[j];
                 console.log("[suggestions] parsed element:"), sub_val
@@ -34,24 +34,47 @@ async function getCompletions(query) {
     }
 }
 
-document.getElementById("uv-address").addEventListener("input", async (event) => {
-    const query = document.getElementById("uv-address").value
+const address = document.getElementById("uv-address")
+const suggestions = document.getElementById("suggestions-container")
+
+function updateSuggestions() {
+    const query = address.value
 
     if (query === "") {
+        suggestions.classList.remove("shown")
         console.log("[suggestions] form empty")
+        suggestions.innerHTML = "";
     } else {
+        suggestions.classList.add("shown")
         getCompletions(query)
             .then((data) => {
                 console.log(typeof data);
+                suggestions.innerHTML = "";
                 data.forEach(element => {
                     console.log(element);
+                    suggestions.innerHTML += `<button class="suggestion" onclick="document.getElementById('uv-address').focus();proxySite(search('${element}', document.getElementById('uv-search-engine').value))">${element}</button>`
+                    // const button = document.createElement("button");
+                    // button.textContent = element;
+                    // button.className = "suggestion";
+                    // button.onclick = () => {
+                    //     proxySite(search(element, searchEngine.value));
+                    // }
+                    // suggestions.appendChild(button);
                 });
             })
-            .catch((error) => {
-                console.error(error);
-            });
     }
-})
+}
+address.addEventListener("input", async (event) => {
+    updateSuggestions()
+});
+
+address.addEventListener("focus", async (event) => {
+    updateSuggestions()
+});
+
+address.addEventListener("blur", async (event) => {
+    updateSuggestions()
+});
 
 getCompletions("ultraviolet")
     .then((data) => {

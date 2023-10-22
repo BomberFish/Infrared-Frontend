@@ -5,7 +5,7 @@
 * Browsers: last 70 version
 */
 
-@import url("./catppuccin.css");
+@import url("catppuccin.css");
 
 /* reset */
 *,
@@ -24,6 +24,7 @@ body {
   --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --searchbar-width: 50vw;
 }
 
 body,
@@ -113,6 +114,10 @@ body.hotdog {
   --err: #f00;
   --warn: #fa0;
   --links: #f00;
+  --font-sans: Arial, sans-serif;
+  --font-mono: Consolas, "Courier New", monospace;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
 }
 
 option[bold] {
@@ -572,15 +577,15 @@ form {
   box-shadow: 0px 0px 8px 0px transparent;
   -webkit-box-shadow: 0px 0px 8px 0px transparent;
   -moz-box-shadow: 0px 0px 8px 0px transparent;
-  
+
   color: var(--text-color);
   -webkit-border-radius: 3px;
   border-radius: 3px;
   outline: none;
-  width: 50vw;
+  width: var(--searchbar-width);
   margin-top: 5px;
-  -webkit-border-radius: 100vw;
-  border-radius: 100vw;
+  -webkit-border-radius: 3rem;
+  border-radius: 3rem;
   color: var(--fg);
   padding: 0px 17px;
   display: -webkit-box;
@@ -588,17 +593,16 @@ form {
   display: -webkit-flex;
   display: flex;
 
-  -webkit-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  -o-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -webkit-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear !important;
+  -o-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear !important;
+  -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-border-radius 0.2s linear !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear,
+    -webkit-border-radius 0.2s linear !important;
 }
 
 #form-container:has(:focus) {
@@ -768,24 +772,6 @@ nav {
   display: none;
 }
 
-@media screen and (orientation: portrait) {
-  #form-container {
-    width: 80vw;
-  }
-  footer .left {
-    display: none;
-    visibility: hidden;
-  }
-
-  .portrait-only {
-    display: initial;
-  }
-
-  .landscape-only {
-    display: none;
-  }
-}
-
 /* more buttons */
 button.btn.primary {
   -webkit-appearance: none;
@@ -868,4 +854,73 @@ button.btn.primary:active {
   -webkit-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   -o-transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* suggestions */
+#suggestions-container {
+  align-self: center;
+  display: none;
+  justify-self: center;
+  width: var(--searchbar-width);
+  border: 2px solid var(--accent);
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding: 0 0;
+  padding-bottom: 0.75rem;
+}
+
+#suggestions-container.shown {
+  display: initial;
+}
+
+.flex-center.logo-wrapper.header-center:has(#suggestions-container.shown) > #uv-form > #form-container /* css selector voodoo magic */ {
+  border-radius: 1.5rem 1.5rem 0 0;
+  -webkit-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear !important;
+  -o-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear !important;
+  -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-border-radius 0.2s linear !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.2s linear,
+    -webkit-border-radius 0.2s linear !important;
+}
+
+.suggestion {
+  appearance: none;
+  display: flex;
+  align-self: flex-start;
+  background: none;
+  border: none;
+  width: var(--searchbar-width);
+  color: var(--fg);
+  padding-left: 1rem;
+  /* padding: 0 0.5rem; */
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-top: 1px solid var(--mg);
+  cursor: pointer;
+}
+
+#suggestions-container:first-child {
+  font-weight: 700;
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    --searchbar-width: 80vw;
+  }
+
+  footer .left {
+    display: none;
+    visibility: hidden;
+  }
+
+  .portrait-only {
+    display: initial;
+  }
+
+  .landscape-only {
+    display: none;
+  }
 }
