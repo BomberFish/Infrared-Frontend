@@ -39,7 +39,7 @@ async function getCompletions(query) {
 /**
  * @type {HTMLInputElement}
  */
-const address = document.getElementById("uv-address")
+var address = document.getElementById("uv-address")
 /**
  * @type {HTMLDivElement}
  */
