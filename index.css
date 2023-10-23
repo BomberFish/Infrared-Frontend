@@ -37,6 +37,7 @@ body:has(#dev-border) {
     all 0.35s cubic-bezier(0.25, 0, 0.75, 1) !important;
 }
 
+body,
 body.auto {
   --accent: #c5598f;
   --accent-light: #c686a6;
@@ -49,6 +50,7 @@ body.auto {
 }
 
 @media (prefers-color-scheme: dark) {
+  body,
   body.auto {
     --accent: #993366;
     --accent-light: #b43c78;
@@ -61,12 +63,28 @@ body.auto {
   }
 }
 
+body.picasso {
+  --bg: #040404;
+  --accent: #4EFFCC;
+}
+
+body.hackerman {
+  --bg: #000;
+  --fg: #0f0;
+  --accent: #0f0;
+}
+
+body.uzi { /* HAHA reference am i funny yet??????? */
+  --bg: #000;
+  --fg: #fff;
+  --accent: rebeccapurple;
+}
+
 body.day {
   --accent: #c5598f;
   --accent-light: #c686a6;
   --fg: #000;
   --bg: #fff;
-  --mg: #888;
   --err: #ff6666;
   --warn: #eebb00;
   --links: rgb(49, 60, 219);
@@ -75,7 +93,6 @@ body.day {
 body.night {
   --fg: #fff;
   --bg: #121212;
-  --mg: #888;
   --accent: #993366; /* actually a flipped version of rebeccapurple */
   --accent-light: #b43c78;
   --err: #fa4444;
