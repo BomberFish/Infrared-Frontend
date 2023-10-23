@@ -46,7 +46,7 @@ var address2 = document.getElementById("uv-address")
 const suggestions = document.getElementById("suggestions-container")
 
 function updateSuggestions() {
-    const query = address.value
+    const query = address2.value
 
     if (query === "") {
         suggestions.classList.remove("shown")
@@ -72,17 +72,17 @@ function updateSuggestions() {
             })
     }
 }
-address.addEventListener("input", async (event) => {
+address2.addEventListener("input", async (event) => {
     event.preventDefault();
     updateSuggestions()
 });
 
-address.addEventListener("focus", async (event) => {
+address2.addEventListener("focus", async (event) => {
     event.preventDefault();
     updateSuggestions()
 });
 
-address.addEventListener("blur", async (event) => {
+address2.addEventListener("blur", async (event) => {
     event.preventDefault();
     updateSuggestions()
 });

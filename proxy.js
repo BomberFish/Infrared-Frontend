@@ -27,7 +27,7 @@ const errorDesc = document.getElementById("uv-error-desc");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   console.log("submit event fired")
-  proxySite(address.value);
+  proxySite(address3.value);
 });
 
 async function proxySite(urlToProxy) {
