@@ -30,6 +30,7 @@
   <link rel="shortcut icon" content="favicon.ico" />
   <link rel="apple-touch-icon" href="./ir-icon-square.png">
   <link rel="apple-touch-icon-precomposed" href="./ir-icon-square.png">
+  <link rel="stylesheet" href="catppuccin.css" />
   <link rel="stylesheet" href="index.css" />
 
   <script src="ir/ir.bundle.js" type="module" defer></script>
@@ -57,7 +58,7 @@
             "name": "How do I unblock sites using Infrared?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Just type the url into the searchbox, and Infrared will do the rest!"
+              "text": "Just type the URL into the searchbox, and Infrared will do the rest!"
             }
           },
           {
@@ -70,7 +71,7 @@
           },
           {
             "@type": "Question",
-            "name": "What if Ultraviolet is blocked or not working?",
+            "name": "What if Infrared is blocked or not working?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "You can always use another instance of Ultraviolet such as Noctura or Holy Unblocker, however note these may not be as close to your geographical location as Infrared is."
@@ -127,7 +128,6 @@
         <?xml version="1.0" encoding="UTF-8"?>
         <svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
-          <!-- <title>ir-logomark</title> -->
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="logomark"
               transform="translate(59.831993, 50.345000) scale(-1.3, 1.3) translate(-59.831993, -50.345000) translate(19.000000, 32.000000)"
@@ -148,14 +148,6 @@
         </div>
       </form>
       <div id="suggestions-container">
-        <!-- <div class="suggestion">isnt</div>
-        <div class="suggestion">this</div>
-        <div class="suggestion">where</div>
-        <div class="suggestion">we</div>
-        <div class="suggestion">came</div>
-        <div class="suggestion">in</div>
-        <div class="suggestion">?</div>
-        <div class="suggestion">?</div> -->
       </div>
       <br>
       <div id="ir-custom-server-warning">⚠️ USING CUSTOM SERVER! ⚠️</div>
@@ -163,7 +155,6 @@
   </div>
   <div id="quicklinks" class="tab">
     <h1>Quicklinks</h1>
-    <!-- <i style="font-size: 0.9em;">Note: these don't work quite yet.</i><br><br> -->
     <div class="quicklink">
       <img src="https://icons.duckduckgo.com/ip3/duckduckgo.com.ico" loading="lazy" alt="Favicon" />
       <button origin="https://duckduckgo.com">DuckDuckGo</button>
@@ -257,14 +248,7 @@
           <span class="focus"></span>
         </span>
       </span>
-    </div><!--<br>-->
-    <!-- <div class="setting-row">
-      <span class="setting-title">Custom Bare Server </span>
-      <span class="setting-option">
-        <input type="text" name="ir-custom-server" id="ir-custom-server" class="textbox">
-      </span>
     </div>
-    <p style="font-size: 0.8em;">⚠️ Do not change this setting unless you know what you're doing.</p><br> -->
     <div id="bottom-buttons">
       <button class="btn primary" onclick="localStorage.clear();window.location.reload();">Reset settings</button>
     </div>
@@ -300,20 +284,6 @@
     <pre id="uv-error-code"></pre>
     <p id="uv-error-desc"></p>
   </div>
-  <!-- <footer>
-    <div class="left">
-      <span>Infrared <strong>1.1.0-b1</strong> – The "holy crap, suggestions" release.<br>A <a
-          href="https://bomberfish.ca" target="_blank">BomberFish Industries</a> project.<span></span><span>&nbsp;<a
-            href="credits.html" target="_blank">View licence notices.</a></span><br>
-    </div>
-    <div class="portrait-only">
-      <span>Infrared <strong>1.1.0-b1</strong></span>
-      <span style="color: #666">|</span>
-      <span> <a href="https://github.com/BomberFish/Infrared" target="_blank">GitHub</a>&nbsp;</span>
-      <span style="color: #666">|</span>
-      <span>&nbsp;<a href="credits.html" target="_blank">Licence Notices</a></span><br>
-    </div>
-  </footer> -->
   <!-- 100% privacy-first analytics -->
   <script async defer src="https://site-stats.bomberfish.ca/latest.js"></script>
   <noscript><img loading="eager" src="https://site-stats.bomberfish.ca/noscript.gif" alt=""
@@ -321,7 +291,6 @@
   <script defer>
     const isDev = (window.location.href.startsWith('https://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://localhost') || window.location.href.startsWith('https://localhost') || window.location.href.startsWith('http://127.0.0.1') || window.location.href.startsWith('https://127.0.0.1'));
     if (isDev) {
-      // document.getElementById("ir-logo").innerHTML = "🌥️";
       setTimeout(() => {
         console.log("waiting 1 second...")
       }, 1000);
