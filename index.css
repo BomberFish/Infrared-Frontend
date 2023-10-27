@@ -71,6 +71,9 @@ body.hackerman {
   --bg: #000;
   --fg: #0f0;
   --accent: #0f0;
+  --mg: #0f0;
+  --warn: #0f0;
+  --err: #0f0;
   --font-sans: var(--font-mono);
   image-rendering: -webkit-optimize-contrast !important;
   image-rendering: pixelated !important;
