@@ -63,16 +63,24 @@ body.auto {
 
 body.picasso {
   --bg: #040404;
-  --accent: #4EFFCC;
+  --accent: #42e1b4;
+  --accent-light: #4effcc;
 }
 
 body.hackerman {
   --bg: #000;
   --fg: #0f0;
   --accent: #0f0;
+  --font-sans: var(--font-mono);
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: pixelated !important;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
 }
 
-body.uzi { /* HAHA reference am i funny yet??????? */
+
+body.uzi {
+  /* HAHA reference am i funny yet??????? */
   --bg: #000;
   --fg: #fff;
   --accent: rebeccapurple;
@@ -131,8 +139,19 @@ body.hotdog {
   --links: #f00;
   --font-sans: Arial, sans-serif;
   --font-mono: Consolas, "Courier New", monospace;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: pixelated !important;
   font-smooth: never;
   -webkit-font-smoothing: none;
+}
+
+#selfpromo {
+  display: none;
+  color: var(--mg);
+}
+
+body.picasso #selfpromo {
+  display: initial!important;
 }
 
 option[bold] {
@@ -142,14 +161,24 @@ option[bold] {
 body.flashbang {
   -webkit-filter: brightness(1.2) contrast(1.3);
   filter: brightness(1.2) contrast(1.3);
-  --accent: #c5598f;
-  --accent-light: #c686a6;
-  --fg: #000;
+  --accent: #fb92c7;
+  --accent-light: #f1b6d4;
+  --fg: #707070;
   --bg: #fff;
   --mg: #888;
   --err: #ff6666;
-  --warn: #eebb00;
+  --warn: #ffe27a;
   --links: rebeccapurple;
+}
+
+body.flashbang #dev-border {
+  border-image-source: repeating-linear-gradient(
+    -9deg,
+    var(--warn),
+    var(--warn) 10px,
+    var(--fg) 10px,
+    var(--fg) 20px
+  )!important;
 }
 
 body.latte {
@@ -201,6 +230,14 @@ body {
   margin: 0 2rem;
   color: var(--fg);
   background: var(--bg);
+}
+
+body.hackerman img,
+body.hotdog img {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: pixelated !important;
+  background-color: var(--accent);
+  background-blend-mode: multiply;
 }
 
 body.flex {
@@ -349,8 +386,8 @@ pre {
 
 /* logo */
 .logo {
-  width: 120px;
-  font-size: 120px;
+  width: 60px;
+  font-size: 60px;
   text-align: center;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
@@ -362,6 +399,7 @@ pre {
   -webkit-user-select: none;
   height: 120px;
   margin-top: 0rem;
+  margin-right: 6%
 }
 
 .logo > svg {
@@ -563,7 +601,7 @@ option {
 
 .setting-option {
   position: absolute;
-  right: 69%;
+  right: 60%;
 }
 
 #ir-custom-server-warning {
@@ -930,7 +968,20 @@ button.btn.primary:active {
 .about-icon-portion {
   width: 150px;
   height: 150px;
+  /* -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2); */
 }
+/* 
+#icon-wrapper {
+  margin-bottom: 75px;
+}
+
+#icon-wrapper:not(:hover) {
+  -webkit-transform: scale(2)!important;
+  -ms-transform: scale(2)!important;
+  transform: scale(2)!important;
+} */
 
 #ir-about-icon {
   transform-style: preserve-3d;
@@ -980,5 +1031,10 @@ button.btn.primary:active {
 
   .landscape-only {
     display: none;
+  }
+
+  .setting-option {
+    position: absolute;
+    right: 20%;
   }
 }
