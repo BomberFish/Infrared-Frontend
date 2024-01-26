@@ -1,3 +1,4 @@
+// "use strict";
 /**
  * @type {HTMLFormElement}
  */
@@ -5,7 +6,7 @@ const form = document.getElementById("uv-form");
 /**
  * @type {HTMLInputElement}
  */
-const address = document.getElementById("uv-address");
+var address3 = document.getElementById("uv-address");
 /**
  * @type {HTMLInputElement}
  */
@@ -19,14 +20,14 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 /**
- * @type {HTMLPreElement}
+ * @type {HTMLParagraphElement}
  */
 const errorDesc = document.getElementById("uv-error-desc");
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
   console.log("submit event fired")
-  proxySite(address.value);
+  proxySite(address3.value);
 });
 
 async function proxySite(urlToProxy) {
@@ -47,7 +48,8 @@ async function proxySite(urlToProxy) {
 }
 
 document.querySelectorAll(".quicklink > button").forEach((button) => {
-  button.addEventListener("click", async () => {
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
     if (button.getAttribute("origin") == null) {
       console.error("Quicklink does not have an origin attribute.")
     } else {
