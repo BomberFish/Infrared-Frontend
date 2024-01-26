@@ -144,13 +144,20 @@
       <form id="uv-form">
         <div id="form-container">
           <input id="uv-address" type="text" placeholder="Enter URL or search" /><br>
-
         </div>
       </form>
       <div id="suggestions-container">
       </div>
       <br>
       <div id="ir-custom-server-warning">⚠️ USING CUSTOM SERVER! ⚠️</div>
+      <button id="ir-reddit-suggestion-container" style="display:none;">
+        <div id="ir-reddit-suggestion">
+          <span id="ir-reddit-suggestion-icon">
+           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m600-200-56-57 143-143H300q-75 0-127.5-52.5T120-580q0-75 52.5-127.5T300-760h20v80h-20q-42 0-71 29t-29 71q0 42 29 71t71 29h387L544-624l56-56 240 240-240 240Z"/></svg>
+          </span>
+          <span id="ir-reddit-suggestion-text">Use Old Reddit?</span>
+        </div>
+      </div>
     </div>
   </div>
   <div id="quicklinks" class="tab">
@@ -280,6 +287,8 @@
         <span style="color: #666">|</span>
         <span>&nbsp;<a href="/credits" target="_blank">Licence Notices</a></span><br>
       </div>
+      <div>
+        <br><br><span>Made with ❤️ in 🇨🇦</span><br>
     </div>
   </div>
   <div class="desc left-margin">
@@ -292,6 +301,7 @@
   <noscript><img loading="eager" src="https://site-stats.bomberfish.ca/noscript.gif" alt=""
       referrerpolicy="no-referrer-when-downgrade" /></noscript>
   <script defer>
+    doEverything();
     const isDev = (window.location.href.startsWith('https://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://infrared-dev.bomberfish.ca') || window.location.href.startsWith('http://localhost') || window.location.href.startsWith('https://localhost') || window.location.href.startsWith('http://127.0.0.1') || window.location.href.startsWith('https://127.0.0.1'));
     if (isDev) {
       setTimeout(() => {
