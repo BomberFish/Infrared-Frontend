@@ -5,12 +5,17 @@
 * Browsers: last 70 version
 */
 
+@import url("./catppuccin.css");
+
 /* reset */
 *,
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 /* variables */
@@ -76,7 +81,10 @@ body.hackerman {
   --err: #0f0;
   --font-sans: var(--font-mono);
   image-rendering: -webkit-optimize-contrast !important;
-  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+      image-rendering: -moz-crisp-edges !important;
+      image-rendering: -o-pixelated !important;
+      image-rendering: pixelated !important;
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
@@ -143,7 +151,10 @@ body.hotdog {
   --font-sans: Arial, sans-serif;
   --font-mono: Consolas, "Courier New", monospace;
   image-rendering: -webkit-optimize-contrast !important;
-  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+      image-rendering: -moz-crisp-edges !important;
+      image-rendering: -o-pixelated !important;
+      image-rendering: pixelated !important;
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
@@ -238,7 +249,10 @@ body {
 body.hackerman img,
 body.hotdog img {
   image-rendering: -webkit-optimize-contrast !important;
-  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+      image-rendering: -moz-crisp-edges !important;
+      image-rendering: -o-pixelated !important;
+      image-rendering: pixelated !important;
   background-color: var(--accent);
   background-blend-mode: multiply;
 }
@@ -542,7 +556,7 @@ select::-ms-expand {
 .select {
   display: -ms-inline-grid;
   display: inline-grid;
-  grid-template-areas: "select";
+      grid-template-areas: "select";
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -673,6 +687,7 @@ form {
   -webkit-transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -913,12 +928,17 @@ button.btn.primary:active {
 
 /* suggestions */
 #suggestions-container {
-  align-self: center;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+          align-self: center;
   display: none;
-  justify-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   width: var(--searchbar-width);
   border: 2px solid var(--accent);
-  border-radius: 0 0 1.5rem 1.5rem;
+  -webkit-border-radius: 0 0 1.5rem 1.5rem;
+          border-radius: 0 0 1.5rem 1.5rem;
   padding: 0 0;
   padding-bottom: 0.75rem;
 }
@@ -928,7 +948,8 @@ button.btn.primary:active {
 }
 
 .flex-center.logo-wrapper.header-center:has(#suggestions-container.shown) > #uv-form > #form-container /* css selector voodoo magic */ {
-  border-radius: 1.5rem 1.5rem 0 0;
+  -webkit-border-radius: 1.5rem 1.5rem 0 0;
+          border-radius: 1.5rem 1.5rem 0 0;
   -webkit-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     border-radius 0.2s linear !important;
   -o-transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -941,9 +962,16 @@ button.btn.primary:active {
 }
 
 .suggestion {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-self: flex-start;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
   background: none;
   border: none;
   width: var(--searchbar-width);
@@ -987,12 +1015,15 @@ button.btn.primary:active {
 } */
 
 #ir-about-icon {
-  transform-style: preserve-3d;
-  transform: translateZ(-100px) perspective(1000px);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateZ(-100px) perspective(1000px);
+          transform: translateZ(-100px) perspective(1000px);
 }
 
 #ir-about-logomark {
-  transform: translateZ(100px);
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
   position: absolute;
   top: 0;
   left: 0;
@@ -1000,15 +1031,21 @@ button.btn.primary:active {
 
 #icon-wrapper > #ir-about-logomark,
 #icon-wrapper:hover > #ir-about-logomark {
+  -webkit-transition: -webkit-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1), -webkit-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #icon-wrapper > #ir-about-logomark {
-  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
 #icon-wrapper:hover > #ir-about-logomark {
-  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
 }
 
 /* #icon-wrapper,
@@ -1043,9 +1080,17 @@ button.btn.primary:active {
 }
 
 #ir-reddit-suggestion {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  align-self: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   -webkit-flex-grow: 1;
@@ -1063,12 +1108,21 @@ button.btn.primary:active {
 }
 
 #ir-reddit-suggestion-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   background: none;
   border: none;
   cursor: pointer;
-  align-items: center;
-  align-self: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+          align-self: center;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   -webkit-flex-grow: 1;
@@ -1076,7 +1130,9 @@ button.btn.primary:active {
 }
 
 body.sanfrancisco #ir-reddit-suggestion-icon {
-  transform: scale(0.25);
+  -webkit-transform: scale(0.25);
+      -ms-transform: scale(0.25);
+          transform: scale(0.25);
     width: 50px;
   height: 50px;
 }
